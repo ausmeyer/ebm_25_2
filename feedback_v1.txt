@@ -1,0 +1,199 @@
+### **Update Based on `ebm_25_1` Review**
+
+A review of the previous lecture (`ebm_25_1/slides.txt`) revealed two high-impact structural elements that should be incorporated into this presentation to improve consistency and learning.
+
+**1. Re-frame "Incorrect Answer" Slides**
+
+The previous lecture used the title "**When Would Other Answers Be Correct?**" This framing is more educational than "**Why Other Options Are Incorrect**" as it encourages learners to think about the concepts in different contexts.
+
+**Action:** Please update the titles of the 10 new slides (requested in Section 1 below) to "**When Would Other Answers Be Correct?**"
+
+**2. Add "Key Takeaway" to Each Debrief Slide**
+
+The previous lecture effectively used a "**Key Takeaway:**" bullet point on each answer slide to summarize the core teaching point. This should be replicated.
+
+**Action:** Please add the following "Key Takeaway" to the end of the explanation on each of the 10 main answer/debrief slides.
+
+-   **Q1 Debrief (Reliability vs. Validity):**
+    -   **Key Takeaway:** Reliability is about consistency (getting the same result repeatedly), while validity is about truthfulness (measuring the right thing).
+-   **Q2 Debrief (Generalizability):**
+    -   **Key Takeaway:** A study's results are only useful if they can be applied to your specific patient population (external validity).
+-   **Q3 Debrief (p-value):**
+    -   **Key Takeaway:** A p-value below alpha allows you to reject the null hypothesis, but it doesn't describe the effect's size or clinical importance.
+-   **Q4 Debrief (Power):**
+    -   **Key Takeaway:** Power is your study's ability to find a real effect; low power means a high chance of a false negative (a Type II error).
+-   **Q5 Debrief (Type II Errors):**
+    -   **Key Takeaway:** Failing to find a difference in a small study doesn't mean there isn't one; you may have simply made a Type II error.
+-   **Q6 Debrief (ANOVA):**
+    -   **Key Takeaway:** Use ANOVA to compare the means of a continuous variable (e.g., phosphorus levels) across three or more groups.
+-   **Q7 Debrief (Chi-Square):**
+    -   **Key Takeaway:** Use a Chi-Square test to compare the proportions of a categorical outcome (e.g., readmitted vs. not) between two or more groups.
+-   **Q8 Debrief (NNT):**
+    -   **Key Takeaway:** NNT translates risk reduction into an intuitive number: how many people you need to treat to prevent one bad outcome.
+-   **Q9 Debrief (Confidence Intervals):**
+    -   **Key Takeaway:** A 95% CI provides a range for the true *population mean*, not a range containing 95% of individual patients.
+-   **Q10 Debrief (Survival Analysis):**
+    -   **Key Takeaway:** For "time-to-event" outcomes, use survival analysis (like Kaplan-Meier) to properly account for time and for patients who leave the study (censoring).
+
+---
+## Feedback for Developer: EBM Presentation 2 (`ebm_25_2`) - V1
+
+This document outlines the required changes to bring the new EBM presentation (`ebm_25_2/index.qmd`) in line with the style and functionality of the previous presentation (`ebm_25_1/index.qmd`), and addresses several content and visualization issues.
+
+### 1. Add "Incorrect Answer" Explanation Slides
+
+**Issue:** Unlike the previous presentation, this one lacks a dedicated slide after each question's answer reveal to explain why the other answer choices are incorrect. This is a critical teaching component that needs to be added.
+
+**Action:** For each of the 10 questions, please insert a new slide immediately following the answer/explanation slide. This new slide should be titled "**Why Other Options Are Incorrect**" and contain the content provided below.
+
+---
+
+**Content for New Slides:**
+
+**After Question 1 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. Content Validity:** This assesses whether a test covers all relevant aspects of the concept it claims to measure. It's about the test's content, not about agreement between raters.
+> -   **B. Internal Consistency Reliability:** This measures how well different items on the same test correlate with each other (e.g., do all questions on a depression screener measure the same underlying construct?). It doesn't involve different raters.
+> -   **D. Predictive Validity:** This assesses how well a test predicts a future outcome (e.g., do high scores on the depression screener predict a future diagnosis of major depressive disorder?).
+
+**After Question 2 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. Causality:** The study is a randomized controlled trial (RCT), which is the gold standard for establishing causality. The limitation is not in determining if the drug *caused* the outcome *within the study*, but if that causal relationship applies elsewhere.
+> -   **C. Internal Validity:** As an RCT, the study likely has high internal validity, meaning its conclusions about the studied population are probably sound. The problem is not the study's internal rigor but its external applicability.
+> -   **D. Power:** With a sample size of 1,500, the study is likely well-powered to detect a difference if one exists within its specific population.
+
+**After Question 3 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. Causality:** This is an observational study. The children receiving multiple doses of epinephrine were likely much sicker to begin with. The treatment didn't *cause* the admission; the underlying severity of their illness did. This is a classic example of confounding by indication.
+> -   **C. Odds Ratio:** While the odds ratio could be calculated from the data, the p-value itself does not provide this information. A p-value only speaks to the statistical significance of the finding, not the magnitude of the effect.
+> -   **D. Underpowered:** The study included 88,000 children and found a highly significant p-value (p=.01), so it was not underpowered.
+
+**After Question 4 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. 5%:** This is the value of α (alpha), the probability of a Type I error. A Type I error can only occur if you *reject* the null hypothesis. Since the authors *failed to reject* the null, a Type I error is not the concern here.
+> -   **B. 7%:** This is not a relevant statistical figure in this context.
+> -   **C. 13%:** This is the p-value (0.13). The p-value is the probability of observing the data if the null hypothesis is true; it is not the probability that the conclusion itself is an error.
+
+**After Question 5 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. Alternative Hypothesis Supported:** The study *failed* to find a significant difference, so the alternative hypothesis (that there is a difference) was *not* supported.
+> -   **B. Type I Error:** A Type I error (false positive) occurs when you *reject* the null hypothesis. Since the study *failed to reject* the null, a Type I error is not the risk.
+> -   **D. Null Hypothesis Rejected:** The opposite is true. The study *failed to reject* the null hypothesis, leading to the conclusion of "no significant difference."
+
+**After Question 6 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **B. Chi-square:** This test is used for comparing proportions or frequencies of categorical data (e.g., comparing the *proportion* of patients in each ethnic group who are above a certain phosphorus threshold), not for comparing continuous means.
+> -   **C. Linear Regression:** While regression could model phosphorus levels with ethnicity as a predictor, ANOVA is the more direct and standard statistical test for specifically asking whether the means of a continuous variable differ across several categories.
+> -   **D. Paired Sample t-test:** This is used to compare the means of two *related* groups (e.g., measuring phosphorus levels in the same patients before and after an intervention). It is not suitable for comparing four independent groups.
+
+**After Question 7 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. Analysis of Variance (ANOVA):** This is used for comparing the means of a *continuous* outcome (like blood pressure) across two or more groups. The outcome here is *categorical* (readmitted vs. not readmitted).
+> -   **C. McNemar Test:** This is used for paired or matched categorical data, such as a "before-and-after" study on the same individuals (e.g., did the proportion of patients with a positive attitude change after receiving an action plan?). The groups here (with vs. without a plan) are independent.
+> -   **D. Paired t-test:** This is used for a *continuous* outcome in *paired* groups. This study has a categorical outcome and independent groups.
+
+**After Question 8 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. 3:** An NNT of 3 would imply an Absolute Risk Reduction (ARR) of 1/3 or 33.3%. The ARR here is 20%.
+> -   **C. 15:** This number does not correspond to a correct calculation based on the provided risks.
+> -   **D. 20:** This is the ARR (20%), not the NNT. The NNT is the reciprocal of the ARR (1 / 0.20).
+
+**After Question 9 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. and D.:** This is a common misinterpretation. The 95% CI is a range for the *population mean*, not a range containing 95% of the individual subjects' data points. The range of individual values would be much wider.
+> -   **C.:** While non-overlapping confidence intervals *suggest* a statistically significant difference, the CI itself doesn't give a "95% likelihood" of that difference. It's a statement about the precision of the mean estimate. The proper way to assess significance is with a formal hypothesis test (like a t-test), which would yield a p-value.
+
+**After Question 10 Answer:**
+> ### Why Other Options Are Incorrect
+>
+> -   **A. ANOVA / C. t-test:** These tests compare means at a single point in time. They cannot handle time-to-event data or account for censoring (when a patient leaves the study before the event occurs). They would ignore crucial information about *when* the seroconversion happened.
+> -   **D. χ² test:** This test could compare the *proportion* of patients who seroconverted by a certain deadline (e.g., by 1 year), but it loses all the information about the timing of conversions that occurred before that deadline. Survival analysis uses all the time-based data.
+
+---
+
+### 2. Revise Slide Titles to Avoid Spoilers
+
+**Issue:** Many slide titles for the answer/explanation slides give away the answer or the core concept before the audience has a chance to engage with the question.
+
+**Action:** Please update the titles of the answer/explanation slides as follows:
+
+-   **Slide 6:** Change "Answer & Explanation — Reliability vs Validity" to "**Debrief: Reliability vs. Validity**"
+-   **Slide 8:** Change "Answer & Explanation — Generalizability (External Validity)" to "**Debrief: Generalizability**"
+-   **Slide 11:** Change "Answer & Explanation — Interpreting a p‑value (When to Reject H₀)" to "**Debrief: Interpreting a p-value**"
+-   **Slide 13:** Change "Answer & Explanation — Power & Type II Error (β)" to "**Debrief: Power & Type II Error**"
+-   **Slide 15:** Change "Answer & Explanation — Type I vs Type II Errors (Failing to Reject H₀)" to "**Debrief: Type I vs. Type II Errors**"
+-   **Slide 18:** Change "Answer & Explanation — Choosing a Test: ANOVA for >2 Means" to "**Debrief: ANOVA for Comparing Means**"
+-   **Slide 20:** Change "Answer & Explanation — Choosing a Test: Chi‑Square for Proportions" to "**Debrief: Chi-Square for Proportions**"
+-   **Slide 23:** Change "Answer & Explanation — Effect Size in Practice: ARR → NNT" to "**Debrief: Calculating NNT**"
+-   **Slide 25:** Change "Answer & Explanation — Confidence Intervals: Meaning & Pitfalls" to "**Debrief: Understanding Confidence Intervals**"
+-   **Slide 28:** Change "Answer & Explanation — Time‑to‑Event Outcomes: Kaplan–Meier & Censoring" to "**Debrief: Survival Analysis**"
+
+### 3. Visualization and Formatting Fixes
+
+Please implement the following changes to the plots and text formatting.
+
+**A. ANOVA Plot (Slide titled "ANOVA: Comparing Means Across Groups")**
+-   **Issue:** The text annotation for the mean (e.g., "Mean = 6.20") is cluttered and partially obscured by the jittered data points.
+-   **Action:**
+    1.  Remove the `geom_text()` layer that adds the "Mean = ..." label.
+    2.  In the `stat_summary()` layer, increase the size of the red diamond representing the mean to make it more prominent. Change `size = 4` to `size = 5`.
+
+**B. ARR and NNT Plot (Slide titled "Visualizing ARR and NNT")**
+-   **Issue:** The current visualization using a faceted dot plot is confusing and doesn't clearly illustrate the concept of NNT. A simpler, more direct visual is needed.
+-   **Action:** Replace the R code for the plot with a simpler "waffle" or icon array chart. A good approach would be to show two rows of 20 person-icons each.
+    -   **Top Row (Control):** Color 6 icons red (30% risk of erosion).
+    -   **Bottom Row (Treatment):** Color 2 icons red (10% risk of erosion).
+    -   **Annotation:** Add text that clearly states: "Treating 20 people prevents 4 erosion events (6 vs. 2). This means for every **5** people treated, **1** event is prevented. **NNT = 5**."
+
+**C. Question 9 Formatting (Slide titled "Question 9: Confidence Intervals")**
+-   **Issue 1:** The long answer options wrap incorrectly, aligning with the "A."/"B." prefixes instead of indenting under the answer text.
+-   **Issue 2:** The capitalization in the provided data is inconsistent ("Biopsy-conﬁrmed" vs "Serology-conﬁrmed").
+-   **Action:**
+    1.  **CSS Fix:** In `custom.css`, modify the CSS for the quiz answer labels to ensure proper wrapping. The `label` element should be a flex container, and the text part should be a block that allows wrapping.
+        ```css
+        /* In custom.css, find the rule for the quiz labels */
+        #quiz-container-9 label {
+          display: flex;
+          align-items: flex-start; /* Align items to the top */
+          text-align: left;
+        }
+
+        #quiz-container-9 label input {
+          margin-top: 0.3em; /* Adjust vertical alignment of radio button */
+          flex-shrink: 0;
+        }
+
+        #quiz-container-9 .answer-text {
+          display: inline-block;
+          padding-left: 0.5em; /* Add space between radio and text */
+        }
+        ```
+    2.  **Capitalization Fix:** In `index.qmd`, correct the text in the data display box to be consistent: "Biopsy-Confirmed" and "Serology-Confirmed".
+
+**D. Confidence Intervals Plot (Slide titled "Understanding Confidence Intervals")**
+-   **Issue:** The plot is unclear about what is being compared. It's not obvious if one method is a "gold standard." The comparison is between two different patient populations defined by their diagnostic method.
+-   **Action:** The goal is to clarify that these are two distinct groups with different outcomes, suggesting one group has better dietary adherence.
+    1.  Change the plot title to: "**Comparing Mean TTG Levels by Diagnostic Method**"
+    2.  Change the subtitle to: "**The non-overlapping CIs suggest that the serology-diagnosed group has significantly higher TTG levels one year post-diagnosis, implying poorer dietary adherence.**"
+    3.  Add a horizontal dashed line at `y = 15` and label it clearly as "**Threshold for Normal TTG**". This provides context for the values. (This is already present, ensure it is prominent).
+
+**E. Kaplan–Meier Plot (Slide titled "Kaplan–Meier Survival Curves")**
+-   **Issue 1:** The subtitle is too technical and verbose for the target audience (pediatric residents).
+-   **Issue 2:** The purpose of the censored event markers ("+") may not be immediately clear and could be distracting.
+-   **Action:**
+    1.  **Simplify Subtitle:** Change the subtitle to: "**This chart shows the probability of remaining free of EBV over time. The log-rank test is used to see if the difference between the two curves is statistically significant.**"
+    2.  **Clarify Censoring:** Keep the "+" symbols for censoring, but add a clear, simple annotation directly on the plot. For example, add a text box pointing to one of the "+" symbols that says: "**'+' = Patient left the study before converting**". This is more effective than explaining it only in the subtitle.
+    3.  **Improve Aesthetics:** Ensure the lines are distinct (colors are good) and consider making the step-lines slightly thicker (`size = 1.5` is good) for better visibility.
+
+---
+
+Please apply these changes to the `index.qmd` and `custom.css` files. This will create a more polished, pedagogically sound, and visually clear presentation.

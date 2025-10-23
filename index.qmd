@@ -1,0 +1,1475 @@
+---
+title: "Biostatistics & Epidemiology — Part 2"
+subtitle: "Validity, Inference & Time‑to‑Event"
+author: "Austin Meyer, MD, PhD, MS, MPH, MS"
+date: "10/24/2025"
+format:
+  revealjs:
+    theme: default
+    css: custom.css
+    slide-number: true
+    transition: slide
+    width: 1280
+    height: 720
+    fontsize: 26px
+    title-slide-attributes:
+      data-state: title-slide
+    self-contained: true
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(ggtext)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## Lecture Overview
+
+### What We'll Cover Today
+
+:::{.incremental}
+- **Part 1: Measurement That Matters**
+  - Differentiate reliability (repeatability) and validity (truth)
+  - Common reliability types: test–retest, internal consistency, inter‑rater
+
+- **Part 2: Hypothesis Testing in the Wild**
+  - What a p‑value means and when to reject H0
+  - Power and Type I/II errors (planning studies to avoid mistakes)
+
+- **Part 3: Choosing the Right Statistical Test**
+  - When to use ANOVA vs chi‑square, with clinical examples
+
+- **Part 4: Clinical Impact & Precision**
+  - ARR → NNT and interpreting 95% confidence intervals
+
+- **Part 5: Time‑to‑Event Outcomes**
+  - Kaplan–Meier curves, censoring, and log‑rank interpretation
+:::
+
+---
+
+## How We'll Work Through Questions
+
+:::{.incremental}
+- Present a clinical vignette and answer options
+- 20–30 seconds of think time (pair‑share)
+- Reveal the answer and debrief with 2–3 teaching points
+- Where helpful, we'll add a simple visual to anchor the concept
+:::
+
+<br><br>
+
+---
+
+# Part 1: Measurement That Matters {background-color="#43418A"}
+
+## Reliability & Validity
+
+---
+
+## Question 1: Reliability vs Validity
+
+:::: {#quiz-container-1}
+<p class="question">
+A physician is meeting with a group of fellows for their weekly research symposium, and the topic of discussion is reliability and validity. They discuss a scenario regarding a hospital that is testing a new depression screening tool. One of the goals is to compare the use of a tool between residents and attending physicians, and evaluate the degree to which the 2 groups independently score patients positive for depression.
+<br><br>
+Of the following, this scenario refers to the research concept of:
+</p>
+
+<form id="quiz-form-1">
+  <label>
+    <input type="radio" name="answer-1" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> content validity</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-1" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> internal consistency reliability</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-1" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> inter-rater reliability</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-1" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> predictive validity</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-1"></div>
+::::
+
+---
+
+## Debrief: Reliability vs. Validity
+
+**Correct Answer: C. inter-rater reliability**
+
+**Key Points:**
+- Reliability is the consistency (repeatability) of scores (e.g., you get the same temperature measurement with repeated tests).
+- Validity describes whether a test or instrument actually measures what is intended (e.g., a temporal thermometer measures the core body temperature).
+
+**Key Takeaway:** Reliability is about consistency (getting the same result repeatedly), while validity is about truthfulness (measuring the right thing).
+
+---
+
+## Three Types of Reliability
+
+```{r fig.width=10, fig.height=5, fig.align='center'}
+# Create a visual comparison of reliability types
+library(ggplot2)
+library(gridExtra)
+library(grid)
+
+# Create data for visualization
+set.seed(123)
+
+# Test-Retest Reliability
+test1 <- rnorm(30, mean = 5, sd = 0.5)
+retest <- test1 + rnorm(30, mean = 0, sd = 0.3)
+df_retest <- data.frame(Test1 = test1, Retest = retest)
+
+# Internal Consistency (Cronbach's alpha concept)
+item1 <- rnorm(30, mean = 5, sd = 1)
+item2 <- item1 + rnorm(30, mean = 0, sd = 0.5)
+item3 <- item1 + rnorm(30, mean = 0, sd = 0.5)
+df_internal <- data.frame(
+  Item = factor(rep(c("Item 1", "Item 2", "Item 3"), each = 30)),
+  Score = c(item1, item2, item3),
+  Person = rep(1:30, 3)
+)
+
+# Inter-Rater Reliability
+rater1 <- rnorm(30, mean = 5, sd = 0.8)
+rater2 <- rater1 + rnorm(30, mean = 0, sd = 0.4)
+df_interrater <- data.frame(Rater1 = rater1, Rater2 = rater2)
+
+# Plot 1: Test-Retest
+p1 <- ggplot(df_retest, aes(x = Test1, y = Retest)) +
+  geom_point(color = "#8CB3D9", size = 3, alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "#43418A", size = 1.2) +
+  labs(title = "Test–Retest Reliability",
+       subtitle = "Same test, different times",
+       x = "Test Score", y = "Retest Score") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", color = "#43418A", size = 12),
+        plot.subtitle = element_text(size = 10))
+
+# Plot 2: Internal Consistency
+p2 <- ggplot(df_internal, aes(x = Item, y = Score, fill = Item)) +
+  geom_boxplot(alpha = 0.6) +
+  scale_fill_manual(values = c("#8CB3D9", "#96C3CE", "#A1D0A5")) +
+  labs(title = "Internal Consistency",
+       subtitle = "Items measure same construct",
+       x = "Test Items", y = "Score") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", color = "#43418A", size = 12),
+        plot.subtitle = element_text(size = 10),
+        legend.position = "none")
+
+# Plot 3: Inter-Rater
+p3 <- ggplot(df_interrater, aes(x = Rater1, y = Rater2)) +
+  geom_point(color = "#A1D0A5", size = 3, alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "#43418A", size = 1.2) +
+  labs(title = "Inter–Rater Reliability",
+       subtitle = "Different raters, same patients",
+       x = "Rater 1 Score", y = "Rater 2 Score") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", color = "#43418A", size = 12),
+        plot.subtitle = element_text(size = 10))
+
+# Combine plots
+grid.arrange(p1, p2, p3, ncol = 3,
+             top = textGrob("Three Types of Reliability",
+                           gp = gpar(fontsize = 16, fontface = "bold", col = "#43418A")))
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. Content Validity:** This assesses whether a test covers all relevant aspects of the concept it claims to measure. It's about the test's content, not about agreement between raters.
+
+- **B. Internal Consistency Reliability:** This measures how well different items on the same test correlate with each other (e.g., do all questions on a depression screener measure the same underlying construct?). It doesn't involve different raters.
+
+- **D. Predictive Validity:** This assesses how well a test predicts a future outcome (e.g., do high scores on the depression screener predict a future diagnosis of major depressive disorder?).
+:::
+
+---
+
+## Question 2: Generalizability (External Validity)
+
+:::: {#quiz-container-2}
+<p class="question">
+A hospitalist works at a large, urban hospital that serves a diverse pediatric patient population with a high burden of severe asthma and atopic disease. For an upcoming journal club, the hospitalist division will review a recently published randomized controlled trial. The trial concludes that a new medication for asthma exacerbations, "BtrBreth," improves asthma symptoms and decreases length of hospital stay as compared to standard asthma therapy. The study was a randomized controlled trial conducted at 20 small pediatric hospitals in rural England with a total sample size of 1,500 patients. The researchers included children with intermittent asthma admitted for an asthma exacerbation and excluded any with persistent asthma, allergies, eczema, or other comorbidities.
+<br><br>
+Of the following, the application of this study to the hospitalist's patients is MOST limited by a lack of:
+</p>
+
+<form id="quiz-form-2">
+  <label>
+    <input type="radio" name="answer-2" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> causality</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-2" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> generalizability</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-2" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> internal validity</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-2" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> power</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-2"></div>
+::::
+
+---
+
+## Debrief: Generalizability
+
+**Correct Answer: B. generalizability**
+
+**Key Points:**
+- Generalizability (external validity) is the degree to which a research study's results can be applied to other populations and settings.
+- Internal validity evaluates the causal relationship of variables in a particular research study.
+
+**Key Takeaway:** A study's results are only useful if they can be applied to your specific patient population (external validity).
+
+---
+
+## Internal vs External Validity Matrix
+
+```{r fig.width=9, fig.height=6, fig.align='center'}
+# Create a 2x2 matrix showing Internal vs External Validity
+library(ggplot2)
+
+# Create quadrant data
+quadrants <- data.frame(
+  x = c(0.25, 0.75, 0.25, 0.75),
+  y = c(0.25, 0.25, 0.75, 0.75),
+  label = c(
+    "Low Internal\nLow External\n\n(Poor Study Design)",
+    "High Internal\nLow External\n\n(BtrBreth Study:\nRCT but narrow\npopulation)",
+    "Low Internal\nHigh External\n\n(Observational study\nwith broad population)",
+    "High Internal\nHigh External\n\n(Ideal: RCT with\nrepresentative sample)"
+  ),
+  color = c("#E74C3C", "#F39C12", "#F39C12", "#A1D0A5")
+)
+
+ggplot(quadrants, aes(x = x, y = y)) +
+  geom_tile(aes(fill = color), width = 0.45, height = 0.45, alpha = 0.3, color = "black", size = 1.5) +
+  geom_text(aes(label = label), size = 4, fontface = "bold") +
+  scale_fill_identity() +
+  scale_x_continuous(limits = c(0, 1), breaks = c(0.25, 0.75), labels = c("Low", "High")) +
+  scale_y_continuous(limits = c(0, 1), breaks = c(0.25, 0.75), labels = c("Low", "High")) +
+  labs(title = "Internal Validity × External Validity",
+       subtitle = "The BtrBreth study has high internal validity but limited generalizability",
+       x = "External Validity (Generalizability)",
+       y = "Internal Validity (Causal Inference)") +
+  theme_void() +
+  theme(
+    plot.title = element_text(size = 18, face = "bold", color = "#43418A", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, color = "#43418A", hjust = 0.5),
+    axis.title.x = element_text(size = 14, face = "bold", color = "#43418A", margin = margin(t = 20)),
+    axis.title.y = element_text(size = 14, face = "bold", color = "#43418A", angle = 90, margin = margin(r = 20)),
+    axis.text.x = element_text(size = 12, face = "bold", margin = margin(t = -20)),
+    axis.text.y = element_text(size = 12, face = "bold", margin = margin(r = -20)),
+    plot.margin = margin(t = 10, r = 10, b = 30, l = 10, unit = "pt")
+  )
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. Causality:** The study is a randomized controlled trial (RCT), which is the gold standard for establishing causality. The limitation is not in determining if the drug *caused* the outcome *within the study*, but if that causal relationship applies elsewhere.
+
+- **C. Internal Validity:** As an RCT, the study likely has high internal validity, meaning its conclusions about the studied population are probably sound. The problem is not the study's internal rigor but its external applicability.
+
+- **D. Power:** With a sample size of 1,500, the study is likely well-powered to detect a difference if one exists within its specific population.
+:::
+
+---
+
+# Part 2: Hypothesis Testing in the Wild {background-color="#43418A"}
+
+---
+
+## Question 3: Interpreting a p‑value
+
+:::: {#quiz-container-3}
+<p class="question">
+Investigators in a recent study assessed admission rates for acute croup. They hypothesized that there would be a significant difference in admission rates among children who received one treatment with nebulized epinephrine compared with children who received multiple treatments of nebulized epinephrine. They sought to detect a difference of 20% in admission rates with a predefined α of .05 and 80% power to reach statistical significance. Using a large inpatient database, they identified 80,000 children who received one dose of nebulized epinephrine and 8,000 children who received more than one dose of nebulized epinephrine for acute croup. Admission rates were 10% in the former group and 70% in the latter group (P = .01).
+<br><br>
+Of the following, the statement that BEST reflects the results of this study is:
+</p>
+
+<form id="quiz-form-3">
+  <label>
+    <input type="radio" name="answer-3" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> multiple doses of epinephrine is a leading cause of admission for croup</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-3" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> the null hypothesis regarding difference in admission rates should be rejected</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-3" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> the odds of admission were 7 times higher with multiple doses of epinephrine</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-3" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> the study was underpowered to find a significant difference between the groups</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-3"></div>
+::::
+
+---
+
+## Debrief: Interpreting a p-value
+
+**Correct Answer: B. the null hypothesis regarding difference in admission rates should be rejected**
+
+**Key Points:**
+- The P value is the probability that an outcome at least as extreme is observed if the null hypothesis is true.
+- Obtaining a result with a P value of less than α = 0.05 (5%) does not guarantee that the null hypothesis is wrong, since a type I error (or false positive error) may still have occurred.
+
+**Key Takeaway:** A p-value below alpha allows you to reject the null hypothesis, but it doesn't describe the effect's size or clinical importance.
+
+---
+
+## Understanding the p-value
+
+```{r fig.width=10, fig.height=5.5, fig.align='center'}
+# Visualize what a p-value represents
+library(ggplot2)
+
+# Create normal distribution under null hypothesis
+x <- seq(-4, 4, length.out = 1000)
+y <- dnorm(x)
+df <- data.frame(x = x, y = y)
+
+# Critical values for alpha = 0.05 (two-tailed)
+critical_value <- qnorm(0.975)
+
+# Create the plot
+ggplot(df, aes(x = x, y = y)) +
+  # Full distribution
+  geom_line(color = "#43418A", size = 1.5) +
+  # Shade rejection regions (p < 0.05)
+  geom_area(data = subset(df, x < -critical_value),
+            aes(x = x, y = y), fill = "#E74C3C", alpha = 0.4) +
+  geom_area(data = subset(df, x > critical_value),
+            aes(x = x, y = y), fill = "#E74C3C", alpha = 0.4) +
+  # Add observed test statistic location
+  geom_vline(xintercept = 2.5, linetype = "dashed", color = "#F39C12", size = 1.2) +
+  annotate("text", x = 2.5, y = 0.35, label = "Observed\nTest Statistic",
+           color = "#F39C12", fontface = "bold", size = 4, hjust = -0.1) +
+  # Add labels for rejection regions
+  annotate("text", x = -3.0, y = 0.04, label = "Reject H0\n(α/2 = 0.025)",
+           color = "#E74C3C", fontface = "bold", size = 3.5) +
+  annotate("text", x = +3.0, y = 0.04, label = "Reject H0\n(α/2 = 0.025)",
+           color = "#E74C3C", fontface = "bold", size = 3.5) +
+  annotate("text", x = 0, y = 0.25, label = "Fail to Reject H0\n(95% of distribution)",
+           color = "#43418A", fontface = "bold", size = 4) +
+  # Labels
+  labs(title = "p-value: Probability of Observing Data This Extreme if H0 is True",
+       subtitle = "p-value is NOT the probability that H0 is true, nor is it the effect size",
+       x = "Test Statistic (standardized)",
+       y = "Probability Density") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#43418A"),
+    plot.subtitle = element_text(size = 12, color = "#E74C3C", face = "italic"),
+    axis.title = element_text(size = 12, face = "bold"),
+    panel.grid.minor = element_blank()
+  ) +
+  scale_x_continuous(breaks = c(-critical_value, 0, critical_value, 2.5),
+                     labels = c("-1.96", "0", "+1.96", "Observed"))
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. Causality:** This is an observational study. The children receiving multiple doses of epinephrine were likely much sicker to begin with. The treatment didn't *cause* the admission; the underlying severity of their illness did. This is a classic example of confounding by indication.
+
+- **C. Odds Ratio:** While the odds ratio could be calculated from the data, the p-value itself does not provide this information. A p-value only speaks to the statistical significance of the finding, not the magnitude of the effect.
+
+- **D. Underpowered:** The study included 88,000 children and found a highly significant p-value (p=.01), so it was not underpowered.
+:::
+
+---
+
+## Question 4: Power & Type II Error
+
+:::: {#quiz-container-4}
+<p class="question">
+A clinical randomized controlled trial is performed to test the efficacy of a new type of corticosteroid inhaler as compared with "usual care" in preventing exacerbations of asthma in children. Enough patients are enrolled to provide a statistical power of 70%. Asthma severity, as measured by means of a validated score, was reduced by 35% in the intervention group and by 28% in the usual care group (p = .13). Using the common criterion of p < .05 as the cutoff point for significance, the authors conclude that there is no statistical difference between intervention and control groups.
+<br><br>
+Of the following, the BEST estimate of the probability that the authors have reached their conclusion in error is:
+</p>
+
+<form id="quiz-form-4">
+  <label>
+    <input type="radio" name="answer-4" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> 5%</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-4" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> 7%</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-4" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> 13%</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-4" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> 30%</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-4"></div>
+::::
+
+---
+
+## Debrief: Power & Type II Error
+
+**Correct Answer: D. 30%**
+
+**Key Points:**
+- The maximum probability of a type I error (inappropriately rejecting the null hypothesis) is determined by the level of significance chosen for the hypothesis test (α, usually .05).
+- The likelihood of type II error (inappropriately failing to reject the null hypothesis) is determined by the power of the hypothesis test (power = 1 − β).
+
+**Key Takeaway:** Power is your study's ability to find a real effect; low power means a high chance of a false negative (a Type II error).
+
+---
+
+## Understanding Statistical Power
+
+```{r fig.width=10, fig.height=6, fig.align='center'}
+# Create power curve visualization
+library(ggplot2)
+
+# Sample sizes to test
+sample_sizes <- seq(10, 200, by = 5)
+
+# Calculate power for different effect sizes
+# Using pwr package concepts (simplified for visualization)
+calculate_power <- function(n, effect_size) {
+  # Simplified power calculation
+  z_alpha <- qnorm(0.975)  # two-tailed alpha = 0.05
+  ncp <- effect_size * sqrt(n / 2)
+  power <- pnorm(ncp - z_alpha) + pnorm(-ncp - z_alpha)
+  return(power)
+}
+
+# Different effect sizes
+effect_sizes <- c(0.2, 0.5, 0.8)  # Small, Medium, Large (Cohen's d)
+power_data <- expand.grid(n = sample_sizes, effect = effect_sizes)
+power_data$power <- mapply(calculate_power, power_data$n, power_data$effect)
+power_data$effect_label <- factor(power_data$effect,
+                                  levels = c(0.2, 0.5, 0.8),
+                                  labels = c("Small Effect (d=0.2)",
+                                           "Medium Effect (d=0.5)",
+                                           "Large Effect (d=0.8)"))
+
+# Create the plot
+ggplot(power_data, aes(x = n, y = power, color = effect_label)) +
+  geom_line(size = 1.5) +
+  geom_hline(yintercept = 0.8, linetype = "dashed", color = "#43418A", size = 1) +
+  geom_hline(yintercept = 0.7, linetype = "dashed", color = "#E74C3C", size = 1) +
+  annotate("text", x = 180, y = 0.83, label = "Target Power: 80%",
+           color = "#43418A", fontface = "bold", size = 4) +
+  annotate("text", x = 180, y = 0.73, label = "Study Power: 70%",
+           color = "#E74C3C", fontface = "bold", size = 4) +
+  scale_color_manual(values = c("#E74C3C", "#F39C12", "#A1D0A5")) +
+  labs(title = "Statistical Power Increases with Sample Size and Effect Size",
+       subtitle = "Power = 1 − β  |  At 70% power, there's a 30% chance of Type II error (false negative)",
+       x = "Sample Size (per group)",
+       y = "Statistical Power",
+       color = "Effect Size") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#43418A"),
+    plot.subtitle = element_text(size = 12, color = "#43418A"),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.position = "bottom",
+    legend.title = element_text(face = "bold"),
+    legend.text = element_text(size = 10),
+    panel.grid.minor = element_blank()
+  ) +
+  scale_y_continuous(breaks = seq(0, 1, 0.1), labels = scales::percent)
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. 5%:** This is the value of α (alpha), the probability of a Type I error. A Type I error can only occur if you *reject* the null hypothesis. Since the authors *failed to reject* the null, a Type I error is not the concern here.
+
+- **B. 7%:** This might seem tempting because it matches the observed difference between groups (35% - 28% = 7 percentage points), but this is simply the magnitude of the effect observed in the study. The probability of Type II error (reaching the wrong conclusion when failing to reject the null) is determined by the study's power. With 70% power, β = 1 - 0.70 = 30%.
+
+- **C. 13%:** This is the p-value (0.13), which tells us the probability of observing these data (or more extreme) if the null hypothesis were true. The p-value is **not** the probability that the authors' conclusion is an error. When we fail to reject the null, the relevant error probability is the Type II error rate (β), which equals 30% in this study (calculated as 1 - power).
+:::
+
+---
+
+## Question 5: Type I vs Type II Errors
+
+:::: {#quiz-container-5}
+<p class="question">
+A new drug is being studied for the treatment of eosinophilic esophagitis. It is a formulation of budesonide in individual pouches with a ready-made viscous solution that eliminates the need for the patient or parent to mix budesonide liquid vials before ingestion. The study randomized 50 children between the ages of 4 and 14 years with eosinophilic esophagitis into 2 groups of medical therapies. They compared the results of esophageal biopsies from the diagnostic endoscopy to a subsequent endoscopy after 3 to 5 months on either formulation of budesonide. The study failed to find a significant difference in the number of eosinophils per HPF in those who used the new drug compound compared with those who used the budesonide vials mixed with a sucralose-based artificial sweetener.
+<br><br>
+Of the following, the MOST accurate statement regarding this study is that:
+</p>
+
+<form id="quiz-form-5">
+  <label>
+    <input type="radio" name="answer-5" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> the alternative hypothesis is supported</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-5" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> it is possible that a type I error was committed</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-5" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> it is possible that a type II error was committed</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-5" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> the null hypothesis is rejected</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-5"></div>
+::::
+
+---
+
+## Debrief: Type I vs. Type II Errors
+
+**Correct Answer: C. it is possible that a type II error was committed**
+
+**Key Points:**
+- A type II error (the probability of which is known as β) occurs when the study fails to reject the null hypothesis when there is indeed a difference between the two study groups.
+- A type I error (the probability of which is known as α) incorrectly rejects the null hypothesis.
+- The power of a study is equal to 1 − β. The higher the power, the lower the possibility of a type II error.
+
+**Key Takeaway:** Failing to find a difference in a small study doesn't mean there isn't one; you may have simply made a Type II error.
+
+---
+
+## Type I and Type II Error Decision Tree
+
+```{r fig.width=10, fig.height=6, fig.align='center'}
+# Create a decision tree visualization
+library(ggplot2)
+library(grid)
+
+# Create a 2x2 decision matrix
+decision_data <- data.frame(
+  x = c(1, 2, 1, 2),
+  y = c(2, 2, 1, 1),
+  label = c(
+    "Type I Error (α)\nFalse Positive\nReject H0 when true",
+    "Correct Decision\nTrue Positive\nPower = 1−β",
+    "Correct Decision\nTrue Negative",
+    "Type II Error (β)\nFalse Negative\nFail to reject H0\nwhen false"
+  ),
+  fill_color = c("#E74C3C", "#A1D0A5", "#A1D0A5", "#F39C12"),
+  text_color = c("white", "black", "black", "black")
+)
+
+ggplot(decision_data, aes(x = x, y = y)) +
+  geom_tile(aes(fill = fill_color), color = "white", size = 2, width = 0.95, height = 0.95) +
+  geom_text(aes(label = label, color = text_color), size = 5, fontface = "bold", lineheight = 1.2) +
+  scale_fill_identity() +
+  scale_color_identity() +
+  scale_x_continuous(breaks = c(1, 2),
+                     labels = c("H0 is TRUE", "H0 is FALSE"),
+                     position = "top",
+                     expand = expansion(mult = 0.02)) +
+  scale_y_continuous(breaks = c(1, 2),
+                     labels = c("FAIL to\nReject H0", "REJECT H0"),
+                     expand = expansion(mult = 0.02)) +
+  labs(title = "Type I and Type II Errors: Decision Matrix",
+       subtitle = "In this budesonide study: failed to reject H0 → potential Type II error (β)",
+       x = "Reality (Unknown Truth)",
+       y = "Your Decision") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 18, face = "bold", color = "#43418A", hjust = 0.5, margin = margin(b = 5)),
+    plot.subtitle = element_text(size = 13, color = "#43418A", hjust = 0.5, face = "bold", margin = margin(b = 30)),
+    axis.title.x.top = element_text(size = 14, face = "bold", color = "#43418A", margin = margin(b = 20)),
+    axis.title.y = element_text(size = 14, face = "bold", color = "#43418A", angle = 90, margin = margin(r = 25)),
+    axis.text.x.top = element_text(size = 12, face = "bold", color = "#43418A", vjust = 0),
+    axis.text.y = element_text(size = 12, face = "bold", color = "#43418A", hjust = 1),
+    panel.grid = element_blank(),
+    axis.ticks.length = unit(0, "pt")
+  ) +
+  coord_fixed()
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. Alternative Hypothesis Supported:** The study *failed* to find a significant difference, so the alternative hypothesis (that there is a difference) was *not* supported.
+
+- **B. Type I Error:** A Type I error (false positive) occurs when you *reject* the null hypothesis. Since the study *failed to reject* the null, a Type I error is not the risk.
+
+- **D. Null Hypothesis Rejected:** The opposite is true. The study *failed to reject* the null hypothesis, leading to the conclusion of "no significant difference."
+:::
+
+---
+
+# Part 3: Choosing the Right Statistical Test {background-color="#43418A"}
+
+---
+
+## Question 6: Testing Groups
+
+:::: {#quiz-container-6}
+<p class="question">
+A pediatric nephrologist is studying factors that affect phosphorus levels in children with end-stage renal disease (ESRD). The nephrologist has collected laboratory data on all children with ESRD over a 5-year period from 6 dialysis centers serving a large, urban, diverse community. Fifty percent of the children were identified as Hispanic, 30% as African-American, 10% as white, and 10% did not have race/ethnicity information available.
+<br><br>
+Of the following, the BEST statistical approach to determine whether mean serum phosphorus levels differ by race/ethnicity in children with ESRD in this cohort is:
+</p>
+
+<form id="quiz-form-6">
+  <label>
+    <input type="radio" name="answer-6" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> analysis of variance</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-6" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> chi-square</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-6" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> linear regression</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-6" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> paired sample t test</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-6"></div>
+::::
+
+---
+
+## Debrief: ANOVA for Comparing Means
+
+**Correct Answer: A. analysis of variance**
+
+**Key Points:**
+- In general, variables can be categorical (e.g., male, female) or continuous (e.g., age, serum phosphorus).
+- Categorical variables can be dichotomous (e.g., vaccinated or unvaccinated) or fall into more than two categories (e.g., race/ethnicity).
+- An analysis of variance is the best option for comparing mean values of more than 2 groups, assuming normal distribution.
+
+**Key Takeaway:** Use ANOVA to compare the means of a continuous variable (e.g., phosphorus levels) across three or more groups.
+
+---
+
+## ANOVA: Comparing Means Across Groups
+
+```{r fig.width=10, fig.height=6, fig.align='center'}
+# Create simulated phosphorus data by race/ethnicity
+set.seed(456)
+
+# Simulate data with slight differences between groups
+n_per_group <- c(150, 90, 30, 30)  # Hispanic, African-American, White, Unknown
+ethnicities <- rep(c("Hispanic", "African-American", "White", "Unknown"), n_per_group)
+
+# Create phosphorus levels with some group differences
+phosphorus <- c(
+  rnorm(n_per_group[1], mean = 6.2, sd = 1.2),  # Hispanic
+  rnorm(n_per_group[2], mean = 6.8, sd = 1.3),  # African-American
+  rnorm(n_per_group[3], mean = 5.9, sd = 1.1),  # White
+  rnorm(n_per_group[4], mean = 6.4, sd = 1.4)   # Unknown
+)
+
+df_phosphorus <- data.frame(
+  Ethnicity = factor(ethnicities, levels = c("Hispanic", "African-American", "White", "Unknown")),
+  Phosphorus = phosphorus
+)
+
+# Calculate means for annotation
+group_means <- df_phosphorus %>%
+  group_by(Ethnicity) %>%
+  summarize(mean_phos = mean(Phosphorus), .groups = "drop")
+
+# Create the plot
+ggplot(df_phosphorus, aes(x = Ethnicity, y = Phosphorus, fill = Ethnicity)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = 16, outlier.size = 2) +
+  geom_jitter(width = 0.2, alpha = 0.3, size = 1.5) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 5,
+               fill = "red", color = "darkred") +
+  scale_fill_manual(values = c("#8CB3D9", "#96C3CE", "#A1D0A5", "#F39C12")) +
+  labs(title = "One-Way ANOVA: Comparing Mean Phosphorus Across >2 Groups",
+       subtitle = "Diamonds show group means  |  ANOVA tests if any means differ significantly",
+       x = "Race/Ethnicity",
+       y = "Serum Phosphorus (mg/dL)") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#43418A"),
+    plot.subtitle = element_text(size = 12, color = "#43418A"),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.position = "none",
+    axis.text.x = element_text(angle = 0, hjust = 0.5, size = 11),
+    panel.grid.minor = element_blank()
+  ) +
+  scale_y_continuous(limits = c(3, 11))
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **B. Chi-square:** This test is used for comparing proportions or frequencies of categorical data (e.g., comparing the *proportion* of patients in each ethnic group who are above a certain phosphorus threshold), not for comparing continuous means.
+
+- **C. Linear Regression:** While regression could model phosphorus levels with ethnicity as a predictor, ANOVA is the more direct and standard statistical test for specifically asking whether the means of a continuous variable differ across several categories.
+
+- **D. Paired Sample t-test:** This is used to compare the means of two *related* groups (e.g., measuring phosphorus levels in the same patients before and after an intervention). It is not suitable for comparing four independent groups.
+:::
+
+---
+
+## Question 7: Testing Proportions
+
+:::: {#quiz-container-7}
+<p class="question">
+A pediatric hospitalist is interested in studying asthma readmissions in her hospital. The hospital admits a large number of patients with asthma. She wants to compare the proportion of asthma readmissions in patients discharged with an asthma action plan compared to asthma patients who are discharged without an asthma action plan.
+<br><br>
+Of the following, the MOST appropriate statistical test for this study is:
+</p>
+
+<form id="quiz-form-7">
+  <label>
+    <input type="radio" name="answer-7" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> analysis of variance</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-7" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> chi-square test</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-7" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> McNemar test</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-7" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> paired t test</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-7"></div>
+::::
+
+---
+
+## Debrief: Chi-Square for Proportions
+
+**Correct Answer: B. chi-square test**
+
+**Key Points:**
+- Choosing an appropriate statistical method depends on the research question, study design, type of variables, and the structure of the data.
+- Categorical variables are variables that have 2 or more groups.
+- A chi-square test is used to compare proportions of a categorical outcome between groups.
+
+**Key Takeaway:** Use a Chi-Square test to compare the proportions of a categorical outcome (e.g., readmitted vs. not) between two or more groups.
+
+---
+
+## Chi‑Square Test: Comparing Proportions
+
+```{r fig.width=10, fig.height=6, fig.align='center'}
+# Create a visualization for chi-square concept
+library(ggplot2)
+library(kableExtra)
+
+# Create example 2x2 table
+asthma_data <- data.frame(
+  Group = c("Action Plan", "No Action Plan", "Total"),
+  Readmitted = c("25", "45", "70"),
+  Not_Readmitted = c("175", "155", "330"),
+  Total = c("200", "200", "400")
+)
+
+# Display as table
+kable(asthma_data,
+      col.names = c("", "Readmitted", "Not Readmitted", "Total"),
+      align = c("l", "c", "c", "c")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE, font_size = 20) %>%
+  column_spec(1, bold = TRUE, width = "8em") %>%
+  column_spec(2:4, width = "6em") %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#43418A") %>%
+  row_spec(3, bold = TRUE, background = "#f0f0f0")
+```
+
+**Chi‑Square Test Calculation:**
+
+- Observed readmission rates: 12.5% (Action Plan) vs 22.5% (No Plan)
+- χ² compares observed counts to expected counts under H0 (no difference)
+- Use **Fisher's exact test** when expected cell counts < 5
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. Analysis of Variance (ANOVA):** This is used for comparing the means of a *continuous* outcome (like blood pressure) across two or more groups. The outcome here is *categorical* (readmitted vs. not readmitted).
+
+- **C. McNemar Test:** This is used for paired or matched categorical data, such as a "before-and-after" study on the same individuals (e.g., did the proportion of patients with a positive attitude change after receiving an action plan?). The groups here (with vs. without a plan) are independent.
+
+- **D. Paired t-test:** This is used for a *continuous* outcome in *paired* groups. This study has a categorical outcome and independent groups.
+:::
+
+---
+
+# Part 4: Clinical Impact & Precision {background-color="#43418A"}
+
+---
+
+## Question 8: ARR and NNT
+
+:::: {#quiz-container-8}
+<p class="question">
+A new medication has been studied for use in patients with juvenile arthritis. In polyarticular rheumatoid factor–positive juvenile idiopathic arthritis, it has been shown to reduce the 2-year risk of joint erosion from 30% to 10%.
+<br><br>
+Of the following, the NUMBER of patients needed to be treated with this medication to decrease the number of children with joint erosion by 1 is:
+</p>
+
+<form id="quiz-form-8">
+  <label>
+    <input type="radio" name="answer-8" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> 3</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-8" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> 5</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-8" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> 15</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-8" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> 20</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-8"></div>
+::::
+
+---
+
+## Debrief: Calculating NNT
+
+**Correct Answer: B. 5**
+
+**Key Points:**
+- Number needed to treat (NNT) is the number of patients who would need to be treated to prevent the unwanted outcome.
+- It is calculated as NNT = 1 / absolute risk reduction = 1 / (risk_control − risk_treatment).
+
+**Key Takeaway:** NNT translates risk reduction into an intuitive number: how many people you need to treat to prevent one bad outcome.
+
+---
+
+## Visualizing ARR and NNT
+
+![](figs/randomized_control.png){width=100%}
+
+**Alternative Calculation:** ARR = 0.40 − 0.20 = 0.20  →  NNT = 1/0.20 = **5**
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. 3:** An NNT of 3 would imply an Absolute Risk Reduction (ARR) of 1/3 or 33.3%. The ARR here is 20%.
+
+- **C. 15:** This might result from incorrectly dividing the control risk by 2 (30% ÷ 2 = 15), or from mistakenly calculating the midpoint between the treatment risk and ARR (10% and 20%). However, NNT is always calculated as 1/ARR. With an ARR of 20% (0.20), the correct calculation is 1 ÷ 0.20 = 5, not 15.
+
+- **D. 20:** This is the ARR (20%), not the NNT. The NNT is the reciprocal of the ARR (1 / 0.20).
+:::
+
+---
+
+## Question 9: Confidence Intervals
+
+:::: {#quiz-container-9}
+<p class="question">
+A researcher is reviewing a study on adolescents with celiac disease (CD). The goal of the study is to determine whether adherence to a gluten-free diet differs based on the method of diagnosis—endoscopic biopsy or serologic markers alone. The outcome measure is the serum tissue transglutaminase (TTG) level 1 year after diagnosis and initiation of the gluten-free diet. A serum immunoglobulin (Ig) A TTG value of less than 15 was selected as normal.
+<br><br>
+The results of the study show the mean TTG level 1 year after diagnosis:
+</p>
+
+<div class="data-display">
+<strong>Biopsy-Confirmed:</strong> TTG 15 U/mL (95% CI: 10-20 U/mL)<br>
+<strong>Serology-Confirmed:</strong> TTG 30 U/mL (95% CI: 18-42 U/mL)
+</div>
+
+<p class="question">
+Of the following, the BEST interpretation of these results is that:
+</p>
+
+<form id="quiz-form-9">
+  <label>
+    <input type="radio" name="answer-9" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> 95% of the subjects with biopsy-confirmed CD had TTG levels between 10 and 20</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-9" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> there is 95% certainty that the mean TTG level for serology-confirmed CD in the population would be between 18 and 42</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-9" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> there is 95% likelihood that the TTG levels of biopsy-confirmed and serology-confirmed patients with CD were significantly different</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-9" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> there is a 95% probability that all serology-confirmed CD patients in the population will have TTG levels between 18 and 42</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-9"></div>
+::::
+
+---
+
+## Debrief: Understanding Confidence Intervals
+
+**Correct Answer: B. there is 95% certainty that the mean TTG level for serology-confirmed CD in the population would be between 18 and 42**
+
+**Key Points:**
+- Confidence intervals are routinely set at 90%, 95%, or 99%, indicating the percent certainty that the true effect (i.e., population mean) falls within the interval.
+- Confidence intervals (CIs) inform the reader about the precision of the estimates. Narrow CIs are typically seen when the sample size is large, because the standard deviations decrease as the sample size increases.
+
+**Key Takeaway:** A 95% CI provides a range for the true *population mean*, not a range containing 95% of individual patients.
+
+---
+
+## Comparing Mean TTG Levels by Diagnostic Method
+
+```{r fig.width=10, fig.height=6, fig.align='center'}
+# Visualize confidence intervals
+library(ggplot2)
+
+# Create data for both groups
+ci_data <- data.frame(
+  Group = c("Biopsy-Confirmed", "Serology-Confirmed"),
+  Mean = c(15, 30),
+  Lower = c(10, 18),
+  Upper = c(20, 42),
+  Color = c("#8CB3D9", "#F39C12")
+)
+
+# Create plot
+ggplot(ci_data, aes(x = Group, y = Mean, color = Group)) +
+  # Add gray band for normal range (0-15)
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = 0, ymax = 15,
+           fill = "gray90", alpha = 0.5) +
+  annotate("text", x = 1.5, y = 7.5, label = "Normal Range\n(< 15 U/mL)",
+           color = "#43418A", fontface = "bold", size = 4, hjust = 0.5) +
+  geom_point(size = 6) +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), width = 0.2, size = 1.5) +
+  # Add value labels next to each point
+  geom_text(aes(label = paste0(Mean, " (", Lower, "–", Upper, ")")),
+            hjust = -0.2, size = 4, fontface = "bold", color = "#43418A",
+            show.legend = FALSE) +
+  scale_color_manual(values = c("#8CB3D9", "#F39C12")) +
+  labs(title = "Comparing Mean TTG Levels by Diagnostic Method",
+       subtitle = "The non-overlapping CIs suggest that the serology-diagnosed group has significantly higher TTG levels one year post-diagnosis, implying poorer dietary adherence",
+       x = "Diagnostic Method",
+       y = "TTG Level (U/mL)",
+       caption = "Higher TTG levels indicate poorer adherence to gluten-free diet") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 18, face = "bold", color = "#43418A"),
+    plot.subtitle = element_text(size = 12, color = "#43418A"),
+    plot.caption = element_text(size = 11, face = "italic", color = "#43418A", hjust = 0.5),
+    axis.title = element_text(size = 13, face = "bold"),
+    axis.text = element_text(size = 12),
+    legend.position = "none",
+    panel.grid.minor = element_blank()
+  ) +
+  scale_y_continuous(breaks = seq(0, 45, 5), limits = c(0, 50)) +
+  scale_x_discrete()
+```
+
+**Key Point:** The CI tells us where the **population mean** likely falls, not where 95% of individuals fall.
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. and D.:** This is a common misinterpretation. The 95% CI is a range for the *population mean*, not a range containing 95% of the individual subjects' data points. The range of individual values would be much wider.
+
+- **C.:** While non-overlapping confidence intervals *suggest* a statistically significant difference, the CI itself doesn't give a "95% likelihood" of that difference. It's a statement about the precision of the mean estimate. The proper way to assess significance is with a formal hypothesis test (like a t-test), which would yield a p-value.
+:::
+
+---
+
+# Part 5: Time‑to‑Event Outcomes {background-color="#43418A"}
+
+---
+
+## Question 10: Survival Analysis
+
+:::: {#quiz-container-10}
+<p class="question">
+A researcher is designing a study on how long it takes Epstein-Barr virus (EBV) IgG-negative pediatric transplant recipients to convert to EBV IgG-positive status after receiving a kidney from an EBV-positive donor. There will be 2 groups; one receives a 90-day course of antiviral therapy after transplant and another receives a 365-day course of antiviral therapy after transplant.
+<br><br>
+Of the following, the BEST statistical approach is:
+</p>
+
+<form id="quiz-form-10">
+  <label>
+    <input type="radio" name="answer-10" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> 1-way analysis of variance</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-10" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> survival analysis</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-10" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> t test</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-10" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> χ² test</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+</form>
+
+<div id="result-10"></div>
+::::
+
+---
+
+## Debrief: Survival Analysis
+
+**Correct Answer: B. survival analysis**
+
+**Key Points:**
+- Kaplan-Meier survival analysis is a great way to visually depict outcomes over time.
+- Additional analysis beyond the survival curve is required to determine whether a statistical difference is present.
+
+**Key Takeaway:** For "time-to-event" outcomes, use survival analysis (like Kaplan-Meier) to properly account for time and for patients who leave the study (censoring).
+
+---
+
+## Kaplan–Meier Survival Curves
+
+```{r fig.width=10, fig.height=6, fig.align='center'}
+# Create Kaplan-Meier style survival curves
+library(ggplot2)
+
+set.seed(789)
+
+# Simulate time-to-event data for two groups
+# 90-day antiviral group - converts earlier
+time_90day <- rweibull(50, shape = 2, scale = 180)
+# 365-day antiviral group - converts later
+time_365day <- rweibull(50, shape = 2, scale = 300)
+
+# Create survival probabilities at different time points
+create_km_data <- function(times, group_name) {
+  times_sorted <- sort(times)
+  n <- length(times_sorted)
+  events <- 1:n
+  at_risk <- n:1
+  survival_prob <- cumprod((at_risk - 1) / at_risk)
+
+  # Add starting point
+  df <- data.frame(
+    time = c(0, times_sorted),
+    survival = c(1, survival_prob),
+    group = group_name
+  )
+  return(df)
+}
+
+km_90 <- create_km_data(time_90day, "90-Day Antiviral")
+km_365 <- create_km_data(time_365day, "365-Day Antiviral")
+
+km_data <- rbind(km_90, km_365)
+
+# Create the plot
+ggplot(km_data, aes(x = time, y = survival, color = group)) +
+  geom_step(size = 1.5) +
+  scale_color_manual(values = c("#E74C3C", "#8CB3D9")) +
+  labs(title = "Kaplan–Meier Survival Curves: Time to EBV Seroconversion",
+       subtitle = "This chart shows the probability of remaining free of EBV over time. The log-rank test is used to see if the difference between the two curves is statistically significant.",
+       x = "Days After Transplant",
+       y = "Probability of Remaining EBV-Negative",
+       color = "Treatment Group") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#43418A"),
+    plot.subtitle = element_text(size = 12, color = "#43418A"),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.position = "bottom",
+    legend.title = element_text(face = "bold", size = 12),
+    legend.text = element_text(size = 11),
+    panel.grid.minor = element_blank()
+  ) +
+  scale_y_continuous(labels = scales::percent, breaks = seq(0, 1, 0.1)) +
+  scale_x_continuous(breaks = seq(0, 500, 50))
+```
+
+---
+
+## When Would Other Answers Be Correct?
+
+:::{.incremental}
+- **A. ANOVA / C. t-test:** These tests compare means at a single point in time. They cannot handle time-to-event data or account for censoring (when a patient leaves the study before the event occurs). They would ignore crucial information about *when* the seroconversion happened.
+
+- **D. χ² test:** This test could compare the *proportion* of patients who seroconverted by a certain deadline (e.g., by 1 year), but it loses all the information about the timing of conversions that occurred before that deadline. Survival analysis uses all the time-based data.
+:::
+
+---
+
+## Summary
+
+### Key Takeaways
+
+:::{.incremental}
+- **Reliability ≠ Validity:** Reliability is consistency; validity is measuring what you intend to measure.
+
+- **Generalizability matters:** High internal validity doesn't help if results don't apply to your population.
+
+- **p‑values show data compatibility with H0:** Report effect sizes and confidence intervals for clinical meaning.
+
+- **Plan for power:** Low power (high β) inflates false negatives (Type II errors).
+
+- **Match the test to the data:** ANOVA for comparing >2 means; χ² for comparing proportions.
+
+- **Report ARR/NNT:** Absolute risk reduction and number needed to treat convey clinical impact.
+
+- **95% CI precision:** Narrow CIs come from larger samples; CIs tell us about population parameters.
+
+- **Survival analysis for time‑to‑event:** Use Kaplan–Meier curves when outcomes unfold over time.
+:::
+
+*Remember: The goal is not just to know statistics, but to apply them wisely in clinical practice.*
+
+```{=html}
+<script>
+// Quiz functionality for all questions
+document.addEventListener('DOMContentLoaded', function() {
+  // Create modals with explanation content directly
+  const explanations = {
+    1: `<p><strong>Correct Answer: C. inter-rater reliability</strong></p>
+  <p><strong>Explanation:</strong> Inter-rater reliability measures the degree to which different raters (residents vs attending physicians) independently agree when scoring the same patients. This is exactly what the scenario describes—comparing how consistently two different groups of clinicians identify depression using the same screening tool.</p>
+  <p><strong>Key Distinction:</strong></p>
+  <ul>
+    <li><strong>Reliability</strong> = consistency/repeatability of measurements (e.g., you get the same result with repeated tests)</li>
+    <li><strong>Validity</strong> = whether a test actually measures what it's intended to measure (e.g., does the tool truly identify depression?)</li>
+  </ul>
+  <p><strong>Other Reliability Types:</strong></p>
+  <ul>
+    <li><strong>Test-retest:</strong> Same rater, same test, different times</li>
+    <li><strong>Internal consistency:</strong> Do all items on a scale measure the same construct? (Cronbach's α)</li>
+  </ul>`,
+
+    2: `<p><strong>Correct Answer: B. generalizability</strong></p>
+  <p><strong>Explanation:</strong> Generalizability (external validity) is the degree to which study results can be applied to other populations and settings. This study has significant limitations for the hospitalist's patients:</p>
+  <ul>
+    <li>Study setting: rural England vs urban US hospital</li>
+    <li>Study population: intermittent asthma only, excluding persistent asthma and comorbidities</li>
+    <li>Hospitalist's population: diverse patients with severe asthma and high atopic disease burden</li>
+  </ul>
+  <p><strong>Internal vs External Validity:</strong></p>
+  <ul>
+    <li><strong>Internal validity:</strong> Does the study establish causation within its own sample? (This RCT likely has high internal validity)</li>
+    <li><strong>External validity:</strong> Can we apply these results to other populations? (Limited due to narrow inclusion criteria)</li>
+  </ul>`,
+
+    3: `<p><strong>Correct Answer: B. the null hypothesis regarding difference in admission rates should be rejected</strong></p>
+  <p><strong>Explanation:</strong> With p = .01, which is less than the predefined α of .05, we have sufficient evidence to reject the null hypothesis (H0: no difference in admission rates between groups).</p>
+  <p><strong>What a p‑value actually means:</strong></p>
+  <ul>
+    <li>p‑value = probability of observing data at least this extreme if H0 were true</li>
+    <li>p = .01 means: "If there were truly no difference, we'd see results this extreme only 1% of the time"</li>
+    <li><strong>Important:</strong> p‑value is NOT the effect size, and p < .05 doesn't guarantee H0 is false (Type I error still possible)</li>
+  </ul>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>A:</strong> Causation claim not supported—this is observational (children getting multiple doses likely have more severe croup)</li>
+    <li><strong>C:</strong> This is an odds ratio calculation, not directly addressed by the p‑value</li>
+    <li><strong>D:</strong> The study was well-powered with 88,000 patients and found p = .01</li>
+  </ul>`,
+
+    4: `<p><strong>Correct Answer: D. 30%</strong></p>
+  <p><strong>Explanation:</strong> The study failed to reject H0 (concluded no difference). With 70% power, the probability of a Type II error (β) is:</p>
+  <p style="text-align: center; font-size: 1.1em; margin: 15px 0;"><strong>β = 1 − Power = 1 − 0.70 = 0.30 = 30%</strong></p>
+  <p><strong>Type II Error:</strong> Failing to reject H0 when there IS a real effect. Given the observed difference (35% vs 28% reduction), the study may have missed a true difference due to insufficient power.</p>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>A (5%):</strong> This is α, the Type I error rate—only relevant if we HAD rejected H0</li>
+    <li><strong>B (7%):</strong> Not relevant to error rates</li>
+    <li><strong>C (13%):</strong> This is the p‑value, which indicates compatibility with H0, not error probability</li>
+  </ul>
+  <p><strong>Key Takeaway:</strong> When a study fails to find significance, always consider power. Low power = high risk of false negatives.</p>`,
+
+    5: `<p><strong>Correct Answer: C. it is possible that a type II error was committed</strong></p>
+  <p><strong>Explanation:</strong> The study failed to find a significant difference (failed to reject H0). A Type II error occurs when we fail to reject H0 when there actually IS a real difference between groups.</p>
+  <p><strong>Why this is possible:</strong></p>
+  <ul>
+    <li>Small sample size (only 50 patients total, 25 per group)</li>
+    <li>Small sample → low power → high risk of Type II error (β)</li>
+    <li>There may be a true benefit to the new formulation that the study missed</li>
+  </ul>
+  <p><strong>Decision Matrix:</strong></p>
+  <table style="margin: 15px auto; border-collapse: collapse; text-align: center;">
+    <tr style="background: #43418A; color: white;">
+      <th style="border: 2px solid white; padding: 8px;">Your Decision</th>
+      <th style="border: 2px solid white; padding: 8px;">H0 is TRUE</th>
+      <th style="border: 2px solid white; padding: 8px;">H0 is FALSE</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Reject H0</td>
+      <td style="border: 1px solid #ccc; padding: 8px; background: #E74C3C; color: white;">Type I Error (α)</td>
+      <td style="border: 1px solid #ccc; padding: 8px; background: #A1D0A5;">Correct ✓</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Fail to Reject H0</td>
+      <td style="border: 1px solid #ccc; padding: 8px; background: #A1D0A5;">Correct ✓</td>
+      <td style="border: 1px solid #ccc; padding: 8px; background: #F39C12;"><strong>Type II Error (β) ← This study</strong></td>
+    </tr>
+  </table>`,
+
+    6: `<p><strong>Correct Answer: A. analysis of variance</strong></p>
+  <p><strong>Explanation:</strong> ANOVA (Analysis of Variance) is the correct test when comparing means across MORE than 2 groups. This study has 4 race/ethnicity groups and wants to compare mean phosphorus levels.</p>
+  <p><strong>When to use ANOVA:</strong></p>
+  <ul>
+    <li><strong>Outcome:</strong> Continuous variable (phosphorus level)</li>
+    <li><strong>Predictor:</strong> Categorical variable with >2 groups (Hispanic, African-American, White, Unknown)</li>
+    <li><strong>Question:</strong> "Do the group means differ?"</li>
+  </ul>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>B. Chi-square:</strong> Used for comparing proportions/frequencies, not means</li>
+    <li><strong>C. Linear regression:</strong> Could work but ANOVA is more direct for this question</li>
+    <li><strong>D. Paired t-test:</strong> Only compares 2 groups, and requires paired/matched data</li>
+  </ul>
+  <p><strong>Post-hoc tests:</strong> If ANOVA shows significance, follow up with post-hoc tests (e.g., Tukey's HSD) to determine which specific groups differ.</p>`,
+
+    7: `<p><strong>Correct Answer: B. chi-square test</strong></p>
+  <p><strong>Explanation:</strong> Chi-square (χ²) test is the appropriate choice when comparing proportions between independent groups. This study compares:</p>
+  <ul>
+    <li><strong>Outcome:</strong> Categorical (readmitted vs not readmitted)</li>
+    <li><strong>Groups:</strong> Two independent groups (action plan vs no action plan)</li>
+    <li><strong>Question:</strong> "Do the proportions of readmission differ between groups?"</li>
+  </ul>
+  <p><strong>Chi-square setup: 2×2 contingency table</strong></p>
+  <table style="margin: 15px auto; border-collapse: collapse; text-align: center;">
+    <tr style="background: #43418A; color: white;">
+      <th style="border: 2px solid white; padding: 8px;"></th>
+      <th style="border: 2px solid white; padding: 8px;">Readmitted</th>
+      <th style="border: 2px solid white; padding: 8px;">Not Readmitted</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Action Plan</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">a</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">b</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">No Action Plan</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">c</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">d</td>
+    </tr>
+  </table>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>A. ANOVA:</strong> Used for comparing means of continuous variables, not proportions</li>
+    <li><strong>C. McNemar test:</strong> Used for paired/matched categorical data (same patients measured twice)</li>
+    <li><strong>D. Paired t-test:</strong> Used for continuous paired data</li>
+  </ul>
+  <p><strong>Note:</strong> Use Fisher's exact test instead of χ² when expected cell counts are < 5.</p>`,
+
+    8: `<p><strong>Correct Answer: B. 5</strong></p>
+  <p><strong>Explanation:</strong> Number Needed to Treat (NNT) is calculated from the Absolute Risk Reduction (ARR):</p>
+  <p style="margin: 15px 0; padding: 15px; background: #f0f0f0; border-left: 4px solid #43418A;">
+    <strong>Step 1:</strong> Calculate ARR = Risk<sub>control</sub> − Risk<sub>treatment</sub><br>
+    ARR = 30% − 10% = 20% = 0.20<br><br>
+    <strong>Step 2:</strong> Calculate NNT = 1 / ARR<br>
+    NNT = 1 / 0.20 = <strong>5</strong>
+  </p>
+  <p><strong>Clinical Interpretation:</strong> For every 5 children treated with this medication, 1 additional child will avoid joint erosion who would have otherwise had erosion.</p>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>A (3):</strong> Would require ARR of 33%</li>
+    <li><strong>C (15):</strong> Incorrect—this might be the treatment percentage (10%) + ARR (20%) = 30%</li>
+    <li><strong>D (20):</strong> This is the ARR expressed as a percentage, not the NNT</li>
+  </ul>
+  <p><strong>Remember:</strong> Lower NNT = more effective treatment. NNT of 5 is considered quite good!</p>`,
+
+    9: `<p><strong>Correct Answer: B. there is 95% certainty that the mean TTG level for serology-confirmed CD in the population would be between 18 and 42</strong></p>
+  <p><strong>Explanation:</strong> A 95% confidence interval (CI) tells us where the TRUE POPULATION MEAN likely falls, not where individual data points fall.</p>
+  <p><strong>Correct Interpretation:</strong></p>
+  <ul>
+    <li>If we repeated this study many times, 95% of calculated CIs would contain the true population mean</li>
+    <li>We are 95% confident that the true mean TTG for serology-confirmed CD patients lies between 18 and 42</li>
+  </ul>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>A:</strong> WRONG—the CI describes the population mean, not the range where 95% of individual subjects fall</li>
+    <li><strong>C:</strong> WRONG—non-overlapping CIs suggest a difference, but this doesn't translate to "95% likelihood of significance"</li>
+    <li><strong>D:</strong> WRONG—the CI is about the mean, not about individual patients' values</li>
+  </ul>
+  <p><strong>Clinical Insight:</strong> The CIs don't overlap (biopsy: 10-20, serology: 18-42), suggesting the serology-confirmed group may have poorer adherence to the gluten-free diet (higher TTG levels).</p>
+  <p><strong>What affects CI width?</strong></p>
+  <ul>
+    <li>Larger sample size → narrower CI (more precise)</li>
+    <li>Higher variability → wider CI (less precise)</li>
+    <li>Higher confidence level (e.g., 99% vs 95%) → wider CI</li>
+  </ul>`,
+
+    10: `<p><strong>Correct Answer: B. survival analysis</strong></p>
+  <p><strong>Explanation:</strong> Survival analysis (specifically Kaplan-Meier curves) is the appropriate method when the outcome is TIME-TO-EVENT and some observations may be censored.</p>
+  <p><strong>Why survival analysis?</strong></p>
+  <ul>
+    <li><strong>Time-to-event outcome:</strong> How long until EBV seroconversion occurs</li>
+    <li><strong>Censoring:</strong> Some patients may not convert by study end, or may be lost to follow-up</li>
+    <li><strong>Comparing groups:</strong> 90-day vs 365-day antiviral therapy</li>
+  </ul>
+  <p><strong>Key Survival Analysis Concepts:</strong></p>
+  <ul>
+    <li><strong>Kaplan-Meier curves:</strong> Step-function plots showing probability of remaining event-free over time</li>
+    <li><strong>Censoring (+ marks):</strong> Patients who exit the study before experiencing the event</li>
+    <li><strong>Log-rank test:</strong> Statistical test comparing entire survival curves between groups</li>
+  </ul>
+  <p><strong>Why other answers are wrong:</strong></p>
+  <ul>
+    <li><strong>A. ANOVA:</strong> Compares means across groups at a single time point, doesn't account for time-to-event or censoring</li>
+    <li><strong>C. t-test:</strong> Compares means between 2 groups at one time point, ignores the time component</li>
+    <li><strong>D. χ² test:</strong> Compares proportions at one time point (e.g., "converted by day 180: yes/no"), loses temporal information</li>
+  </ul>
+  <p><strong>Common medical uses:</strong> Overall survival, time to disease recurrence, time to hospital readmission, time to seroconversion</p>`
+  };
+
+  // Create modals for all explanations
+  for (let i = 1; i <= 10; i++) {
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.id = `modal-${i}`;
+    modal.className = 'modal';
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+
+    const closeBtn = document.createElement('span');
+    closeBtn.className = 'close';
+    closeBtn.innerHTML = '&times;';
+
+    // Set explanation content
+    const content = explanations[i];
+
+    modalContent.innerHTML = content;
+    modalContent.appendChild(closeBtn);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+
+    // Add close functionality
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    };
+
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  }
+
+  // Define correct answers for each question
+  const correctAnswers = {
+    1: 'C',
+    2: 'B',
+    3: 'B',
+    4: 'D',
+    5: 'C',
+    6: 'A',
+    7: 'B',
+    8: 'B',
+    9: 'B',
+    10: 'B'
+  };
+
+  // Create quiz handlers for all 10 questions
+  for (let i = 1; i <= 10; i++) {
+    const form = document.getElementById(`quiz-form-${i}`);
+    if (form) {
+      form.onsubmit = function(e) {
+        e.preventDefault();
+        const selected = document.querySelector(`input[name="answer-${i}"]:checked`);
+        const resultDiv = document.getElementById(`result-${i}`);
+        const modal = document.getElementById(`modal-${i}`);
+
+        if (selected) {
+          if (selected.value === correctAnswers[i]) {
+            resultDiv.innerHTML = '<p style="color: green; font-weight: bold;">✓ Correct!</p>';
+            modal.style.display = 'block';
+          } else {
+            resultDiv.innerHTML = '<p style="color: red; font-weight: bold;">✗ Incorrect. Try again!</p>';
+            modal.style.display = 'block';
+          }
+        } else {
+          resultDiv.innerHTML = '<p style="color: orange;">Please select an answer.</p>';
+        }
+      };
+    }
+  }
+
+  // Style all submit buttons
+  var buttons = document.querySelectorAll('button[type="submit"]');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].style.cssText = 'background-color: #43418A; color: white; border: none; padding: 8px 16px; margin-top: 10px; border-radius: 4px; cursor: pointer; font-weight: bold;';
+  }
+
+  // Add hover effect to buttons
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('mouseover', function() {
+      this.style.backgroundColor = '#32307a';
+    });
+    buttons[i].addEventListener('mouseout', function() {
+      this.style.backgroundColor = '#43418A';
+    });
+  }
+});
+</script>
+```

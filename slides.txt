@@ -1,0 +1,845 @@
+Of course. Here is a detailed slide-by-slide outline for your
+presentation, crafted from the provided document and ready for your
+production department.
+
+Slide 1: Title Slide
+
+-   Title: Biostatistics & Epidemiology for the Modern Clinician
+
+-   Subtitle: A Practical Review of Key Concepts
+
+-   Presenter Name/Department: [Your Name/Department Here]
+
+-   Date: [Date of Presentation]
+
+Slide 2: Lecture Overview
+
+-   Title: What We'll Cover Today
+
+-   Content (Bulleted List):
+
+    -   Part 1: Describing Clinical Data
+
+        -   Understanding variable types (continuous, discrete, nominal,
+            ordinal).
+
+        -   Choosing the right measures of central tendency (mean vs.
+            median).
+
+        -   Interpreting data distribution and standard deviations.
+
+    -   Part 2: Foundational Epidemiology & Diagnostic Testing
+
+        -   Differentiating prevalence from incidence.
+
+        -   Calculating and interpreting sensitivity and specificity.
+
+    -   Part 3: A Critical Capstone Concept
+
+        -   The crucial difference between association, correlation, and
+            causation.
+
+Slide 3: Part 1 Title Slide
+
+-   Title: Part 1: Describing Clinical Data (The Fundamentals)
+
+Slide 4: Question 1
+
+-   Title: Question 1: Variable Types
+
+-   Content:
+
+  A physician has been collecting data on adolescent patients’ body mass
+  indices (BMIs). The physician is now trying to determine whether BMI
+  is associated with glycated hemoglobin (HbA1c) levels. It is
+  hypothesized that there should be an association because higher BMIs
+  are associated with type 2 diabetes mellitus and because people with
+  uncontrolled diabetes mellitus have elevated HbA1c levels. The
+  physician has collected data on 300 patients over the past 6 months.
+
+  <br>
+
+  <br>
+
+  Of the following, the variable type that BEST describes BMI and HbA1c
+  is:
+
+  A. continuous
+
+  B. discrete
+
+  C. nominal
+
+  D. ordinal
+
+Slide 5: Answer & Explanation 1
+
+-   Title: Answer 1: Continuous Variables
+
+-   Correct Answer: A. continuous
+
+-   Explanation (Bulleted List):
+
+    -   Continuous variables can theoretically take on an infinite
+        number of values between any two points.
+
+    -   Both BMI and HbA1c are measured, not counted. They can be
+        carried out to many decimal places depending on the precision of
+        the measurement instrument (e.g., a BMI of 22.5 or 22.51).
+
+    -   This is distinct from discrete variables, which are counted in
+        whole numbers (e.g., number of children).
+
+    -   Key Takeaway: If a variable is measured on a scale with
+        potentially infinite values, it's continuous.
+
+Slide 6: Alternative Answers 1
+
+-   Title: When Would Other Answers Be Correct?
+
+-   Content:
+
+    -   B. discrete: This would be correct if the variable was something
+        you count in whole numbers.
+
+        -   Example: "Number of cigarettes smoked per day," "Number of
+            hospital admissions," or "Number of seizures in a month."
+            These variables have a finite number of possible values.
+
+    -   C. nominal: This would be correct if the variable represented
+        categories with no inherent order or rank.
+
+        -   Example: "Blood Type (A, B, AB, O)," "Patient's City of
+            Residence," or "Hair Color." You can't say that 'Type O' is
+            mathematically greater than 'Type A'.
+
+    -   D. ordinal: This would be correct if the variable represented
+        categories with a meaningful order, but the intervals between
+        them are not equal.
+
+        -   Example: A pain scale (1-10), a Likert scale ("Strongly
+            Disagree" to "Strongly Agree"), or cancer staging (Stage I,
+            II, III, IV).
+
+Slide 7: Question 2
+
+-   Title: Question 2: Categorizing Data
+
+-   Content:
+
+  A researcher is designing a clinical trial and developing the data
+  collection forms. The researcher wants to collect information
+  regarding household income, and, instead of leaving a blank area for
+  the participant to report their income, the researcher provides the
+  following choices: less than $50,000, $50,000 to $75,000, $75,001 to
+  $100,000, and greater than $100,000.
+
+  <br>
+
+  <br>
+
+  Of the following, the BEST way to describe this income variable is:
+
+  A. continuous variable
+
+  B. dichotomous variable
+
+  C. nominal variable
+
+  D. ordinal variable
+
+Slide 8: Answer & Explanation 2
+
+-   Title: Answer 2: Ordinal Variable
+
+-   Correct Answer: D. ordinal variable
+
+-   Explanation (Bulleted List):
+
+    -   The variable is broken into categories that have a clear,
+        meaningful order or hierarchy (less than $50k < $50k-$75k <
+        etc.).
+
+    -   However, the intervals between the categories are not equal. The
+        "less than $50,000" category is an open-ended range, as is
+        "greater than $100,000."
+
+    -   This conversion of a continuous variable (exact income) into
+        ordered categories is a common practice for simplifying data
+        collection and analysis.
+
+    -   Key Takeaway: If data is in ordered categories, it's an ordinal
+        variable.
+
+Slide 9: Alternative Answers 2
+
+-   Title: When Would Other Answers Be Correct?
+
+-   Content:
+
+    -   A. continuous variable: This would be correct if the researcher
+        had asked participants to write in their exact household income
+        (e.g., "$81,100.16").
+
+    -   B. dichotomous variable: This is a specific type of categorical
+        variable with only two possible outcomes. This would be correct
+        if the choices were simply "Income below $75,000" and "Income
+        $75,000 or above."
+
+    -   C. nominal variable: This would be correct if the categories had
+        no logical order. For example, if the question was "What is your
+        primary source of income?" with categories like "Wages,"
+        "Investments," "Retirement," "Self-Employment."
+
+Slide 10: Question 3
+
+-   Title: Question 3: Central Tendency
+
+-   Content:
+
+  A hospitalist is working on a quality improvement project related to
+  bronchiolitis. A team member has proposed an intervention package that
+  they believe will reduce length of stay by 25%. The hospitalist is
+  gathering length-of-stay data from the past 3 bronchiolitis seasons to
+  set the baseline metric for the project. The histogram and descriptive
+  statistics are shown in Figure 1.
+
+  <br>
+
+  <br>
+
+  Of the following, the MOST accurate assessment of the baseline data is
+  that:
+
+  A. the large number of outliers precludes accurate estimation of
+  length of stay
+
+  B. the mean is the most appropriate measure of length of stay
+
+  C. the median is the most appropriate measure of length of stay
+
+  D. there is a 95% certainty that the true mean is between 30 and 88
+  hours
+
+-   Visualization Note for Production Team:
+
+    -   Create a histogram titled "Distribution of Hospital Length of
+        Stay (Hours)".
+
+    -   X-axis: "Length of Stay (Hours)".
+
+    -   Y-axis: "Number of Patients (Frequency)".
+
+    -   Distribution: The data must be clearly right-skewed. Show a
+        large cluster of bars at the low end (e.g., between 24-96 hours)
+        and a long, low tail extending far to the right, with a few very
+        small bars at high values (e.g., 400, 500 hours).
+
+    -   Annotations: Add two vertical lines to the plot. One labeled
+        "Median" at the peak of the cluster, and another labeled "Mean"
+        pulled to the right of the median, into the tail of the
+        distribution.
+
+Slide 11: Answer & Explanation 3
+
+-   Title: Answer 3: Median for Skewed Data
+
+-   Correct Answer: C. the median is the most appropriate measure of
+    length of stay
+
+-   Explanation (Bulleted List):
+
+    -   The histogram shows right-skewed data, meaning there are a few
+        very high values (outliers) that pull the tail to the right.
+
+    -   The mean (the average) is highly sensitive to outliers. These
+        few extremely long hospital stays will artificially inflate the
+        mean, making it a poor representation of a "typical" patient's
+        stay.
+
+    -   The median (the middle value) is resistant to outliers. It
+        represents the 50th percentile, providing a much better measure
+        of central tendency for skewed datasets.
+
+    -   Key Takeaway: For skewed data, always prefer the median over the
+        mean. Mean is for normally distributed (symmetric) data.
+
+Slide 12: Alternative Answers 3
+
+-   Title: When Would Other Answers Be Correct?
+
+-   Content:
+
+    -   A. the large number of outliers precludes accurate
+        estimation...: This is incorrect. While outliers complicate
+        analysis, they don't make it impossible. Using robust statistics
+        like the median allows for an accurate estimation of the central
+        tendency.
+
+    -   B. the mean is the most appropriate measure...: This would be
+        correct if the histogram showed a symmetric, bell-shaped
+        (normal) distribution. In that case, the mean and median would
+        be nearly identical and either would be appropriate.
+
+    -   D. there is a 95% certainty that the true mean is between 30 and
+        88 hours: This describes a 95% Confidence Interval. While this
+        is a valid statistical concept, we cannot determine its value
+        from the information given in the question, and it doesn't
+        address the primary issue of choosing the best measure of
+        central tendency for this dataset.
+
+Slide 13: Question 4
+
+-   Title: Question 4: Describing Normal Data
+
+-   Content:
+
+  Data obtained on elements of the complete blood count in 2- to
+  24-month-old infants and children with viral infections are being
+  compared with data in those with confirmed bacterial infection.
+
+  <br>
+
+  <br>
+
+  Of the following, and assuming continuous variables and a normal
+  distribution, the measure of central tendency that yields the BEST
+  descriptive information for evaluating the components of the complete
+  blood count in this study is:
+
+  A. mean
+
+  B. median
+
+  C. mode
+
+  D. range
+
+Slide 14: Answer & Explanation 4
+
+-   Title: Answer 4: Mean for Normal Data
+
+-   Correct Answer: A. mean
+
+-   Explanation (Bulleted List):
+
+    -   The question explicitly states two key conditions: the variables
+        are continuous (like WBC count, hemoglobin) and they follow a
+        normal distribution.
+
+    -   For normally distributed (symmetric, bell-shaped) data, the
+        mean, median, and mode are all equal.
+
+    -   The mean is the conventional and most powerful measure of
+        central tendency for normal distributions because it uses every
+        data point in its calculation.
+
+    -   Key Takeaway: When you see "normal distribution," think "mean."
+
+Slide 15: Alternative Answers 4
+
+-   Title: When Would Other Answers Be Correct?
+
+-   Content:
+
+    -   B. median: This would be the best choice if the data were
+        skewed, as we saw in the previous question.
+
+    -   C. mode: This is the most frequent value. It's most useful for
+        nominal (categorical) data. For example, to describe the most
+        common blood type in a sample. It is rarely the best measure for
+        continuous data.
+
+    -   D. range: This is a measure of dispersion or spread (Max - Min),
+        not central tendency. It tells you how spread out the data is,
+        but not where the center is. It would be used alongside the mean
+        to describe the data, but it is not a measure of the center
+        itself.
+
+Slide 16: Question 5
+
+-   Title: Question 5: Standard Deviation
+
+-   Content:
+
+  An 11-year-old boy is experiencing unexplained weight loss... At his
+  visit this year, he has lost 3.63 kg (8.00 lb). His current height and
+  weight are shown in Figure 1.
+
+  <br>
+
+  <br>
+
+  Of the following, assuming weights are distributed normally, this
+  boy’s weight falls:
+
+  A. 1 to 2 standard deviations from the mean
+
+  B. 2 to 3 standard deviations from the mean
+
+  C. greater than 3 standard deviations from the mean
+
+  D. less than 1 standard deviation from the mean
+
+-   Visualization Note for Production Team:
+
+    -   Create a standard Weight-for-Age growth chart for boys.
+
+    -   X-axis: "Age (Years)", marked up to 11.
+
+    -   Y-axis: "Weight (kg)".
+
+    -   Curves: Draw and label the standard percentile curves: 3rd,
+        16th, 50th, 84th, 97th.
+
+    -   Annotations:
+
+        -   Next to the 50th percentile curve, label it "Mean".
+
+        -   Next to the 16th and 84th percentile curves, label them "±1
+            SD".
+
+        -   Next to the 3rd and 97th percentile curves, label them "±2
+            SD".
+
+    -   Data Point: Place a large, visible dot on the chart at Age = 11,
+        positioned on the 5th percentile curve. This will visually place
+        it between the 3rd percentile (-2 SD) and the 16th percentile
+        (-1 SD).
+
+Slide 17: Answer & Explanation 5
+
+-   Title: Answer 5: Interpreting Standard Deviations
+
+-   Correct Answer: A. 1 to 2 standard deviations from the mean
+
+-   Explanation (Bulleted List):
+
+    -   For normally distributed data (like growth charts):
+
+        -   The 50th percentile represents the mean.
+
+        -   ±1 SD from the mean covers ~68% of the population (from the
+            16th to the 84th percentile).
+
+        -   ±2 SD from the mean covers ~95% of the population (from the
+            3rd to the 97th percentile).
+
+    -   The vignette states the boy's weight is at the 5th percentile.
+
+    -   The 5th percentile falls between the 3rd percentile (-2 SD) and
+        the 16th percentile (-1 SD).
+
+    -   Therefore, his weight is between 1 and 2 standard deviations
+        below the mean.
+
+Slide 18: Alternative Answers 5
+
+-   Title: When Would Other Answers Be Correct?
+
+-   Content:
+
+    -   B. 2 to 3 standard deviations from the mean: This would be
+        correct if his weight was extremely low, falling between the 3rd
+        percentile (~ -2 SD) and the 0.1st percentile (~ -3 SD).
+
+    -   C. greater than 3 standard deviations from the mean: This would
+        be correct for a truly extreme value, either very high (>99.9th
+        percentile) or very low (<0.1st percentile).
+
+    -   D. less than 1 standard deviation from the mean: This would be
+        correct if his weight was closer to average, for example, at the
+        25th percentile (which falls between the 16th and 50th
+        percentiles).
+
+Slide 19: Part 2 Title Slide
+
+-   Title: Part 2: Foundational Epidemiology & Diagnostic Testing
+
+Slide 20: Question 6
+
+-   Title: Question 6: Prevalence vs. Incidence
+
+-   Content:
+
+  A screening program conducted at a high school is screening student
+  athletes with electrocardiography to identify undiagnosed heart
+  disease. Of 1,000 students, 2 students are found to have a prolonged
+  QT interval.
+
+  <br>
+
+  <br>
+
+  Of the following, the parameter of long QT syndrome that can BEST be
+  calculated by these data is the:
+
+  A. incidence
+
+  B. odds ratio
+
+  C. prevalence
+
+  D. relative risk
+
+Slide 21: Answer & Explanation 6
+
+-   Title: Answer 6: Prevalence
+
+-   Correct Answer: C. prevalence
+
+-   Explanation (Bulleted List):
+
+    -   Prevalence is a snapshot in time. It measures the number of
+        existing cases (both new and old) in a defined population at a
+        single point in time.
+
+    -   The study screened 1,000 students and found 2 cases. This is a
+        snapshot.
+
+    -   Prevalence = (Number of existing cases) / (Total population) = 2
+        / 1000.
+
+    -   Incidence, by contrast, measures new cases that develop over a
+        period of time. To measure incidence, you would need to follow
+        the 998 healthy students over time to see who develops the
+        condition.
+
+    -   Key Takeaway: Prevalence = Snapshot. Incidence = Movie.
+
+Slide 22: Alternative Answers 6
+
+-   Title: When Would Other Answers Be Correct?
+
+-   Content:
+
+    -   A. incidence: This would be correct if the study stated: "We
+        followed 1,000 initially healthy athletes for one year, and
+        during that year, 2 athletes developed long QT syndrome for the
+        first time."
+
+    -   B. odds ratio: This is a measure of association, typically from
+        a case-control study. You would need two groups (e.g., students
+        with long QT and students without) and you would compare the
+        odds of a certain exposure (e.g., family history) between the
+        two groups.
+
+    -   D. relative risk: This is a measure of association, typically
+        from a cohort study. You would need to follow two groups over
+        time (e.g., one group exposed to a risk factor, one group not
+        exposed) and compare the incidence of the disease in each group.
+
+Slide 23: Question 7
+
+-   Title: Question 7: Calculating Incidence
+
+-   Content:
+
+  A recent article described the epidemiology of celiac disease in an
+  inner-city community. The study evaluated a city with 50,000 children
+  without celiac disease at the start of the study. At the end of the
+  5-year period, the following number of children were diagnosed with
+  celiac disease.
+
+-   Year 1: 5 New Celiac Cases
+
+-   Year 2: 5 New Celiac Cases
+
+-   Year 3: 5 New Celiac Cases
+
+-   Year 4: 10 New Celiac Cases
+
+-   Year 5: 10 New Celiac Cases
+
+  <br>**Of the following, the annual INCIDENCE rate of celiac disease
+  per 100,000 patients in this study is:**A. 5B. 7C. 14D. 35
+
+Slide 24: Answer & Explanation 7
+
+-   Title: Answer 7: Calculating Annual Incidence
+
+-   Correct Answer: C. 14
+
+-   Explanation (Step-by-Step Calculation):
+
+    1.  Find the total number of new cases:
+
+        -   5 + 5 + 5 + 10 + 10 = 35 new cases over 5 years.
+
+    2.  Find the average number of new cases per year:
+
+        -   35 cases / 5 years = 7 new cases per year.
+
+    3.  Calculate the annual incidence rate:
+
+        -   (Average new cases per year) / (Population at risk)
+
+        -   7 / 50,000 = 0.00014
+
+    4.  Convert the rate to "per 100,000" as requested:
+
+        -   0.00014 * 100,000 = 14 per 100,000.
+
+Slide 25: Alternative Answers 7
+
+-   Title: How You Might Get the Wrong Answer
+
+-   Content:
+
+    -   A. 5: This is the number of new cases in Year 1, not the average
+        annual rate.
+
+    -   B. 7: This is the correct average number of new cases per year,
+        but it is not the rate per 100,000. This is a common mistake of
+        stopping the calculation too early.
+
+    -   D. 35: This is the total number of new cases over the entire
+        5-year period, not the annual rate.
+
+Slide 26: Question 8
+
+-   Title: Question 8: Sensitivity
+
+-   Content:
+
+  An infant is admitted to the intensive care unit with septic shock...
+  A recent study presented the following information: among 200 children
+  admitted with septic shock, 100 developed acute kidney injury. Of
+  those who developed acute kidney injury, the test was positive in 70
+  children. However, the test was also positive in 10 children who did
+  not develop acute kidney injury.
+
+  <br>
+
+  <br>
+
+  Of the following, based on these results, the SENSITIVITY of the new
+  blood test for detecting acute kidney injury is:
+
+  A. 10%
+
+  B. 30%
+
+  C. 70%
+
+  D. 90%
+
+Slide 27: Answer & Explanation 8
+
+-   Title: Answer 8: Calculating Sensitivity
+
+-   Correct Answer: C. 70%
+
+-   Explanation:
+
+    -   Sensitivity answers the question: "Of all the people who
+        actually have the disease, what percentage test positive?"
+
+    -   Formula: Sensitivity = True Positives / (True Positives + False
+        Negatives)
+
+-   Let's break down the numbers:
+
+    -   Total patients with AKI (Disease Present) = 100
+
+    -   Test positive in those with AKI (True Positives) = 70
+
+    -   This means 30 patients with AKI must have tested negative (False
+        Negatives = 100 - 70).
+
+-   Calculation:
+
+    -   Sensitivity = 70 / (70 + 30) = 70 / 100 = 70%
+
+-   Visualization Note for Production Team:
+
+    -   Create a 2x2 contingency table.
+
+    -   Columns: "Has AKI (Disease)", "No AKI (Healthy)".
+
+    -   Rows: "Test Positive", "Test Negative".
+
+    -   Fill in the cells:
+
+        -   True Positive (Has AKI, Test +): 70
+
+        -   False Positive (No AKI, Test +): 10
+
+        -   False Negative (Has AKI, Test -): 30
+
+        -   True Negative (No AKI, Test -): 90
+
+    -   Highlight the "Has AKI" column to show that sensitivity is
+        calculated only from this group.
+
+Slide 28: Alternative Answers 8
+
+-   Title: What Do the Other Numbers Represent?
+
+-   Content:
+
+  Using the data from the previous slide:
+
+-   A. 10%: This is the False Positive Rate (10 False Positives / 100
+    Healthy Patients).
+
+-   B. 30%: This is the False Negative Rate (30 False Negatives / 100
+    Patients with AKI).
+
+-   D. 90%: This is the Specificity of the test. Specificity answers:
+    "Of all the people who are healthy, what percentage test negative?"
+
+    -   Calculation: True Negatives / (True Negatives + False Positives)
+        = 90 / (90 + 10) = 90 / 100 = 90%.
+
+Slide 29: Question 9
+
+-   Title: Question 9: Sensitivity & Specificity
+
+-   Content:
+
+  A research article describes a potential new serum screening test for
+  eosinophilic esophagitis (EoE). One hundred children are recruited...
+
+-   Of the 25 with EoE, the screening test was positive in 20 and
+    negative in 5.
+
+-   Of the 75 without EoE, the screening test was negative in 65 and
+    positive in 10.
+
+  <br>**Of the following, the sensitivity and specificity of the
+  screening test are:**A. Sensitivity 20.0%, Specificity 75.0%B.
+  Sensitivity 80.0%, Specificity 86.7%C. Sensitivity 80.0%, Specificity
+  25.0%D. Sensitivity 20.0%, Specificity 25.0%
+
+Slide 30: Answer & Explanation 9
+
+-   Title: Answer 9: Calculating Both
+
+-   Correct Answer: B. Sensitivity 80.0%, Specificity 86.7%
+
+-   Visualization: A 2x2 Table is Essential Here
+
++-------------------+-------------------------+------------------------+
+| -                 | Has EoE (Disease)       | No EoE (Healthy)       |
++===================+:=======================:+:======================:+
+| Test Positive     | 20 (TP)                 | 10 (FP)                |
++-------------------+-------------------------+------------------------+
+| Test Negative     | 5 (FN)                  | 65 (TN)                |
++-------------------+-------------------------+------------------------+
+
+-   Calculations:
+
+    -   Sensitivity = TP / (TP + FN)
+
+        -   = 20 / (20 + 5) = 20 / 25 = 80.0%
+
+    -   Specificity = TN / (TN + FP)
+
+        -   = 65 / (65 + 10) = 65 / 75 = 86.7%
+
+-   Teaching Point: Note that even peer-reviewed source material can
+    have typos. Always perform the calculations yourself to verify the
+    results.
+
+Slide 31: Part 3 Title Slide
+
+-   Title: Part 3: A Critical Capstone Concept
+
+Slide 32: Question 10
+
+-   Title: Question 10: Association vs. Causation
+
+-   Content:
+
+  The health editor of a parenting magazine inquires about a study that
+  was recently published... The study examined the relationship between
+  toddler thumb-sucking and later food allergy.
+
+  <br>
+
+  <br>
+
+  Of the following, based on the provided scatterplot (Figure 1), the
+  MOST appropriate conclusion to draw from this study is that
+  thumb-sucking:
+
+  A. is associated with a lower incidence of food allergy
+
+  B. is a result of food allergy
+
+  C. is unrelated to the incidence of food allergy
+
+  D. lowers the incidence of food allergy
+
+-   Visualization Note for Production Team:
+
+    -   Create a scatterplot titled "Relationship Between Thumb-Sucking
+        and Food Allergies".
+
+    -   X-axis: "Months of Thumb-Sucking".
+
+    -   Y-axis: "Number of Diagnosed Food Allergies".
+
+    -   Data Points: Plot numerous dots that show a clear negative
+        correlation. The cloud of points should trend from the
+        upper-left to the lower-right.
+
+    -   Trend Line: Draw a line of best fit through the data points.
+        This line must have a clear downward (negative) slope.
+
+Slide 33: Answer & Explanation 10
+
+-   Title: Answer 10: Association is Not Causation
+
+-   Correct Answer: A. is associated with a lower incidence of food
+    allergy
+
+-   Explanation (Bulleted List):
+
+    -   The scatterplot shows a clear relationship: as the months of
+        thumb-sucking increase, the number of food allergies tends to
+        decrease. This is a negative correlation.
+
+    -   Association and correlation are appropriate terms to describe
+        this relationship. We can say the two variables are linked.
+
+    -   However, this study design cannot prove causation. We don't know
+        if thumb-sucking causes a lower incidence of allergies. There
+        could be a confounding variable (e.g., exposure to microbes,
+        genetics, socioeconomic factors) that influences both behaviors.
+
+    -   Key Takeaway: The most important phrase in statistics:
+        Correlation does not imply causation.
+
+Slide 34: Alternative Answers 10
+
+-   Title: Why the Other Conclusions Are Wrong
+
+-   Content:
+
+    -   B. is a result of food allergy: This reverses the potential
+        causal pathway with no evidence. It's an unsupported causal
+        claim.
+
+    -   C. is unrelated to the incidence of food allergy: This is
+        factually incorrect. The scatterplot clearly shows a
+        relationship (a negative correlation). If it were unrelated, the
+        data points would be scattered randomly with no discernible
+        trend.
+
+    -   D. lowers the incidence of food allergy: This is a causal claim.
+        The word "lowers" implies that thumb-sucking is the active agent
+        causing the effect. While this might be a hypothesis for a
+        future study (like a randomized controlled trial), this
+        observational data cannot support this strong conclusion.
+
+Slide 35: Final Slide
+
+-   Title: Questions?
+
+-   Content:
+
+    -   [Your Name]
+
+    -   [Your Contact Information/Department]

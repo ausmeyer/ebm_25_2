@@ -1,0 +1,38 @@
+### Feedback Summary
+- The deck now mirrors the structure of part 1 (quiz → debrief → alternate-answer slide) and reads at the right clinical level.
+- Focus for V2: clean up the survival and ARR/NNT visuals, clarify the TTG confidence-interval plot, and tighten two alternate-answer explanations so residents see the common pitfalls.
+
+### Priority Visual Fixes
+1. Kaplan–Meier survival curve (`index.qmd`:1137-1199)
+   - Issue: The simulated censoring crosses plus the arrow annotation pull attention away from the curves and invite over-explanation that is not needed for our message.
+   - Action: Delete the `censored_90`/`censored_365` data frames, the `geom_point(...)` layer that plots them, and the `annotate("text"/"segment", ...)` block. Keep the clean step functions and, if we still want to mention censoring, do it verbally or add a one-line caption under the plot.
+
+2. Comparing Mean TTG Levels by Diagnostic Method (`index.qmd`:1031-1059)
+   - Issue: Flipping the axes with `coord_flip()` removes the color legend, so the two groups look identical; the dashed “Normal threshold” line also becomes vertical, which is visually confusing.
+   - Action: Drop `coord_flip()` and keep the x-axis as the diagnostic method. Either restore a legend or label each point directly (e.g., `geom_text(aes(label = "15 (10–20) U/mL"), ...)`). Consider replacing the horizontal threshold line with a soft gray band from 0–15 so the “normal” target reads clearly.
+
+3. Visualizing ARR and NNT (`index.qmd`:918-951)
+   - Issue: The annotation text is still clipped at the bottom in revealjs, and the icon array does not add more clarity than the figures you already approved.
+   - Action: Remove this entire R chunk. Upload the provided PNGs to `figs/` (e.g., `figs/nnt_icon_array.png` and `figs/nnt_storyboard.png`) and embed them with Markdown:  
+     ```
+     ![](figs/nnt_icon_array.png){width=100%}
+     ![](figs/nnt_storyboard.png){width=100%}
+     ```
+     Add a brief lead-in sentence before the images so residents know what to look for.
+
+### Alternate-Answer Review
+- Q1 Reliability: Explanations accurate and clinically grounded—no change needed.
+- Q2 Generalizability: Spot on.
+- Q3 p-value: Nice job highlighting confounding by indication; keep as-is.
+- Q4 Power/Type II error: Expand the option B note so it states why “7%” is tempting (it matches the observed 7-point difference) yet still wrong. Likewise, clarify option C by reminding learners that 13% is the p-value, not the probability of error.
+- Q5 Type I vs Type II: Reads clearly; no edits.
+- Q6 ANOVA: Accurate.
+- Q7 Chi-square: Accurate and succinct.
+- Q8 ARR/NNT: Strengthen the option C explanation—spell out the specific misstep (e.g., dividing 30% by two or plugging 0.15 into 1/ARR) so learners see why “15” can feel reasonable but is incorrect.
+- Q9 Confidence intervals: Accurate.
+- Q10 Survival analysis: Accurate once the visual is simplified.
+
+### Additional Notes
+- After swapping in the static images, re-knit to ensure revealjs no longer clips the content.
+- Consider a short verbal cue on the TTG slide (speaker notes or caption) explaining that higher TTG = poorer adherence, so residents connect the clinical meaning to the visual.
+- Add `fig-alt` text to the new images so exported formats remain accessible.

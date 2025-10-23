@@ -1,0 +1,706 @@
+Question 1 of 10 (Original Question #11)
+
+A physician is meeting with a group of fellows for their weekly research symposium, and the topic of
+discussion is reliability and validity. They discuss a scenario regarding a hospital that is testing a new
+depression screening tool. One of the goals is to compare the use of a tool between residents and attending
+physicians, and evaluate the degree to which the 2 groups independently score patients positive for
+depression. 
+Of the following, this scenario refers to the research concept of
+A.content validity
+B.internal consistency reliability
+C.inter-rater reliability 
+D.predictive validity
+
+Correct Answer: inter-rater reliability
+
+PREP Pearl(s):
+Reliability is the consistency (repeatability) of scores (eg, you get the same temperature measurement
+with repeated tests).
+Validity  describes whether a test or instrument actually measures what is intended (eg, a temporal
+thermometer measures the core body temperature).
+
+Critique:
+The vignette example involves inter-rater reliability, one of several types of reliability measures. When
+evaluating the generalizability or impact of a test or instrument, it is important to understand the concepts of
+reliability and validity. Reliability  is the consistency (repeatability) of scores (eg, you get the same
+temperature measurement with repeated tests of a thermometer). Validity  describes whether a test or
+instrument actually measures what is intended (eg, a temporal thermometer accurately measures core body
+temperature).
+Three aspects of reliability should be considered: test-retest, internal consistency, and inter-rater reliability:
+Test-retest reliability  assesses if a test/instrument yields the same results each time when used with
+the same study population under the same study conditions (temporal thermometer reading is the
+same, even when temperature is taken sequentially within minutes). There is a high test-retest
+reliability when the scores are similar on each administration.
+Internal consistency reliability measures the consistency of items within a test. For example, some
+tests/instruments are composed of several subtests, combined into a composite score. Internal
+consistency occurs when each of those items correlate to the overall composite score. Two methods to
+measure internal consistency include the Kuder-Richardson 20 and the Cronbach alpha. An alpha of
+0.80 or higher is an indicator of high internal consistency.8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 23/99
+Inter-rater reliability measures the degree to which 2 separate raters independently rate an
+observation similarly (same temperature reading between the nurse and the doctor using the same
+instrument). Time lapse and multiple raters threaten this type of reliability measure. 
+There are 2 major types of validity: content and criterion, each having subtypes within them:
+Content validity refers to the degree with which a particular construct is represented by the items
+that make up an instrument/test. There are 2 types of content validity: face and sampling. 
+Face validity refers to whether the elements of an instrument/test make intuitive sense. 
+Sampling validity refers to whether all the aspects to be studied are included in the
+instrument. 
+Criterion validity is the degree in which the measurement correlates with an external criterion or
+instrument/test that is considered valid. The types of criterion validity include convergent, predictive,
+and discriminant validity. 
+Convergent validity assesses the degree to which independent measures of the same
+construct are correlated.
+Predictive validity is the ability of an instrument/test to predict some future criterion. 
+Discriminant validity is present when an instrument/test shows little or no correlation with a
+measure from which it differs. 
+Several types of reliability and validity should be evaluated when considering a particular instrument/test. 
+Su gg ested Reading( s)
+Ho PM, Peterson PN, Masoudi FA. Evaluating the evidence: is there a rigid hierarchy? Circulation .
+2008;118:1675-1684. doi: 10.1161/CIRCULATIONAHA.107.721357
+Perry-Parrish C, Dodge R. Research and statistics: validity hierarchy for study design and study type.
+Pediatr Rev . 2010;31(1):27-29. doi: 10.1542/pir.31-1-27
+Content D om ain
+Statistics
+The correct answer is: inter-rater reliability
+
+
+--------------------------------------------------------------------------------
+
+Question 2 of 10 (Original Question #12)
+
+A hospitalist works at a large, urban hospital that serves a diverse pediatric patient population with a high
+burden of severe asthma and atopic disease. For an upcoming journal club, the hospitalist division will review
+a recently published randomized controlled trial. The trial concludes that a new medication for asthma
+exacerbations, “BtrBreth,” improves asthma symptoms and decreases length of hospital stay as compared to
+standard asthma therapy. The study was a randomized controlled trial conducted at 20 small pediatric
+hospitals in rural England with a total sample size of 1,500 patients. The researchers included children with
+intermittent asthma admitted for an asthma exacerbation and excluded any with persistent asthma,
+allergies, eczema, or other comorbidities.
+Of the following, the application of this study to the hospitalist’s patients is MOST limited by a lack of
+A.causality
+B.generalizability 
+C.internal validity
+D.power
+
+Correct Answer: generalizability
+
+PREP Pearl(s):
+Generalizability (external validity) is the degree to which a research study’s results can be applied to
+other populations and settings.
+Internal validity evaluates the causal relationship of variables in a particular research study.
+
+Critique:
+Generalizability, also known as external validity, is the application of study conclusions to individuals and
+circumstances beyond those studied. External validity is the extent to which one can generalize the findings
+of a study to other situations, people, settings, and measures. A study is considered generalizable if the
+characteristics and implications of the results may be applied to individuals other than those sampled and
+across different times and settings. In this case, a new asthma medication, “BtrBreth,” was studied in
+pediatric patients with intermittent asthma admitted with an asthma exacerbation at 20 small hospitals in
+England. Though the results appear promising, the findings are likely not generalizable to the hospitalist
+group’s patients, who live in an urban setting and have varying levels of asthma severity. Generalizability is an
+important concept for hospitalists to assess while evaluating research results and applying these to their own
+patient populations. 
+Internal validity is defined as the extent to which the observed results represent the truth in the population
+we are studying and, thus, are not due to methodological errors. A study has high internal validity if there is a
+high degree of confidence in the cause and effect result of a relationship between variables. Confounding,
+when a third variable distorts the true relationship between the exposure and outcome variables, is limited8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 25/99
+when internal validity is high. Randomization allows the treatment and control groups to have similar
+demographics and therefore limits confounding. In the case above, there is high internal validity. BtrBreth
+was evaluated in a randomized controlled trial with strict inclusion and exclusion criteria in one particular
+setting. One may confidently conclude that BtrBreth improves outcome measures for intermittent asthmatics
+hospitalized with an asthma exacerbation more than current standard management. However, achieving
+high internal validity may come at the expense of generalizability; patients in the treatment and control
+groups may be similar to each other but quite different from patients elsewhere. The study with BtrBreth has
+high internal validity but low generalizability.
+It is optimal to seek a balance between internal validity and generalizability. To achieve this, researchers try
+to increase the heterogeneity of the sampled population. This may be accomplished by using random
+sampling, which reduces bias in the study and therefore, improves generalizability. Another step to improve
+generalizability is to broaden eligibility criteria of the study population. However, while improving
+generalizability, broadening eligibility criteria may decrease internal validity and feasibility of the study.
+Conducting a study across multiple settings, inpatient and outpatient settings for example, may increase
+generalizability. 
+Causality and power do not limit the applicability of this study. Causality is the relationship of the
+independent variable’s effect on the dependent variable. In this case, does BtrBreth affect asthma outcomes?
+If done with appropriate randomization and blinding, this randomized controlled trial demonstrated that it
+does. Power represents the likelihood that a study will detect an effect or have a significant result if such an
+effect exists in the population being studied. In statistical terms, power is the probability that a test will reject
+a false null hypothesis (ie, that it will not make a type II error). When other factors are equal, studies with
+larger sample sizes, like this study, have greater statistical power. 
+Su gg ested Reading( s)
+Crowne SS. Research and statistics: generalizability and how it relates to validity. Pediatr Rev .
+2010;31(8):335-336. doi: 
+Steckler A, Mcleroy KR. The importance of external validity. American Journal of Public Health .
+2008;98(1):9-10. doi: 10.2105/ajph.2007.126847
+Content D om ain
+Statistics
+The correct answer is: generalizability
+
+
+--------------------------------------------------------------------------------
+
+Question 3 of 10 (Original Question #21)
+
+Investigators in a recent study assessed admission rates for acute croup. They hypothesized that there would
+be a significant difference in admission rates among children who received one treatment with nebulized
+epinephrine compared with children who received multiple treatments of nebulized epinephrine. They
+sought to detect a difference of 20% in admission rates with a predefined α  of .05 and 80% power to reach
+statistical significance. Using a large inpatient database, they identified 80,000 children who received one
+dose of nebulized epinephrine and 8,000 children who received more than one dose of nebulized
+epinephrine for acute croup. Admission rates were 10% in the former group and 70% in the latter group ( P
+=.01). 
+Of the following, the statement that BEST reflects the results of this study is
+A.multiple doses of epinephrine is a leading cause of admission for croup
+B.the null hypothesis regarding difference in admission rates should be rejected 
+C.the odds of admission were 7 times higher with multiple doses of epinephrine
+D.the study was underpowered to find a significant difference between the groups
+
+Correct Answer: the null hypothesis regarding difference in admission rates should be rejected
+
+PREP Pearl(s):
+The P value is the probability that an outcome at least as extreme is observed if the null hypothesis is
+true.
+Obtaining a result with a  P value of less than α  = 0.05 (5%) does not guarantee that the null hypothesis
+is wrong, since a type I error (or false positive error) may still have occurred.
+P values do not provide any information about the effect size of the results.
+
+Critique:
+The null hypothesis of this study is that there is no difference in admission rates for children with croup who
+received one treatment with nebulized epinephrine compared with children who received multiple doses of
+epinephrine. Given that the P value for the difference in admission rates was P =.01, the null hypothesis
+should be rejected in favor of the alternative hypothesis (ie, there is a true difference between the two
+groups).
+Retrospective studies such as this, while suggesting an association between multiple doses of inhaled
+epinephrine and admission, cannot establish causation. Odds ratios are calculated by calculating the cross
+product ratio of a 2 ✕  2 table; in this instance, the odds ratio is 21. Lastly, given the large patient sample and
+the P value of .01, the study appears to be adequately powered to find a significant difference. If no
+significant difference was detected, one might suspect that a type II error (or false negative error) has
+occurred, as a result of lack of power.8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 45/99
+The P value is the probability that an outcome at least as extreme is observed if the null hypothesis is true.
+Typically, the significance level, or α , for a statistical test is set at .05. Alpha levels are determined by the
+investigators at the beginning of the study, whereas P values are calculated from the data. Obtaining a result
+with a P value of less than .05 (5%) does not guarantee that the null hypothesis is wrong, since a type I error
+(or false positive error) may still have occurred. In addition, P values should also not be interpreted as the
+probability that a hypothesis is true; in this example, it would be incorrect to state that the hypothesis was
+99.99% likely to be true. Finally, although P values may help a clinician decide whether to accept or reject a
+hypothesis, they do not provide any measure of effect size to help with clinical decision making.
+The power of a study is the probability of finding a difference that does exist or that the null hypothesis will
+be rejected. A study’s power can be increased by increasing the sample size, the effect size, or the α .
+Su gg ested Reading( s)
+Greenland S, Senn SJ, Rothman KJ, et al. Statistical tests, P values, confidence intervals, and power: a
+guide to misinterpretations. Eur J Epidemiol.  2016;31(4):337-350. doi:10.1007/s10654-016-0149-3.
+Youngquist ST. Part 19: what is a P value? Air Med J.  2012; 31(2): 56-71. doi:10.1016/j.amj.2011.12.007.
+Elmore JG, Wild DMG, Nelson HD, Katz DL. Jekel’s Epidemiology, Biostatistics, Preventive Medicine, and
+Public Health. 5th ed. St. Louis, MO: Elsevier; 2020: chap 9:132.
+Content D om ain
+Statistics
+Learning O bjectives
+Interpret a p-value
+The correct answer is: the null hypothesis regarding difference in admission rates should be rejected
+
+
+--------------------------------------------------------------------------------
+
+Question 4 of 10 (Original Question #17)
+
+A clinical randomized controlled trial is performed to test the efficacy of a new type of corticosteroid inhaler
+as compared with “usual care” in preventing exacerbations of asthma in children. Enough patients are
+enrolled to provide a statistical power of 70%. Asthma severity, as measured by means of a validated score,
+was reduced by 35% in the intervention group and by 28% in the usual care group (p = .13). Using the
+common criterion of p < .05 as the cutoff point for significance, the authors conclude that there is no
+statistical difference between intervention and control groups.
+Of the following, the BEST estimate of the probability that the authors have reached their conclusion in error
+is
+A.5%
+B.7%
+C.13%
+D.30% 
+
+Correct Answer: 30%
+
+PREP Pearl(s):
+The maximum probability of a type I error (inappropriately rejecting the null hypothesis) is determined
+by the level of significance chosen for the hypothesis test ( α , usually .05).
+The likelihood of type II error (inappropriately failing to reject the null hypothesis) is determined by the
+power of the hypothesis test (power = 1 − β ).
+Increasing sample size is one way to decrease the likelihood of type II error.
+
+Critique:
+The power of a study is the study’s ability to detect a predetermined difference between 2 groups when one
+truly exists. If the authors in this study have reached their conclusion in error, they have committed a type II
+error in failing to reject the null hypothesis. The probability of type II error is β , determined by the power of
+the test (1 − β ), which in this study is 70%. Because 1 − β  = 0.7, β  = 0.3 or 30% is the correct response.
+Researchers can often reduce type II error and increase the power of a study by increasing the sample size
+(Table ).
+The authors of this study sought to assess whether a new technology would provide superior control of
+childhood asthma as compared with usual care. To perform this assessment, they must use the available
+data to test their hypothesis, using appropriate hypothesis testing. In this case, the null hypothesis (a
+statement of “no effect” or “no difference”) is that the new inhaler technology provides the same benefit as
+usual care. The alternative hypothesis states that the new inhaler technology differs from usual care. This
+may be stated in 1 of 2 ways: (1) the test technology provides improvement  over usual care (a one-tailed
+hypothesis), or (2) the test technology is not equivalent  to usual care (a 2-tailed hypothesis, recognizing that8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 36/99
+the test technology could be either better or worse than usual care). In either case, the authors here
+determined that the null hypothesis could not be rejected because the reported p-value did not achieve the
+predetermined level of statistical significance of p < .05. 
+Hypothesis testing
+On the basis of sample data, a hypothesis test is used to determine whether the data support rejecting or not
+rejecting the null hypothesis. Depending on the type of data collected, a variety of statistical tests may be
+used to test the hypothesis of interest. Typically, these hypothesis tests report the calculated probability or
+“p-value,” which is used to make the determination. A cut-point is chosen ahead of time to define the p-value
+below which the null hypothesis is rejected. Most commonly, a p-value cutoff of .05 is used in scientific
+research. This is the maximum probability of making a type I error (null hypothesis rejected when it is true)
+that the researchers are willing to accept.
+Type I error
+A type I error is made when the null hypothesis is in fact true but is rejected. The likelihood of this error is α ,
+which is the level of significance chosen for the hypothesis test (typically, .05). If a higher α  is used, there is a
+greater likelihood of type I error. If a lower α  is used, it may be more difficult to detect a true difference.
+Type II error
+When the null hypothesis is in fact false but is not rejected, a type II error is made. The likelihood of
+committing a type II error is β , which is determined by the power of the test. When one increases the power
+(often by increasing the sample size), one decreases the chance of committing a type II error.
+Su gg ested Reading( s)
+Guyatt G, Rennie D. Users' Guides to the Medical Literature: A Manual for Evidence-based Clinical practice .
+AMA Press; 2002.
+Content D om ain
+Statistics
+The correct answer is: 30%
+
+
+--------------------------------------------------------------------------------
+
+Question 5 of 10 (Original Question #13)
+
+A new drug is being studied for the treatment of eosinophilic esophagitis. It is a formulation of budesonide in
+individual pouches with a ready-made viscous solution that eliminates the need for the patient or parent to
+mix budesonide liquid vials before ingestion. The study randomized 50 children between the ages of 4 and
+14 years with eosinophilic esophagitis into 2 groups of medical therapies. They compared the results of
+esophageal biopsies from the diagnostic endoscopy to a subsequent endoscopy after 3 to 5 months on
+either formulation of budesonide. The study failed to find a significant difference in the number of
+eosinophils per HPF in those who used the new drug compound compared with those who used the
+budesonide vials mixed with a sucralose-based artificial sweetener.
+Of the following, the MOST accurate statement regarding this study is that
+A.the alternative hypothesis is supported
+B.it is possible that a type I error was committed
+C.it is possible that a type II error was committed 
+D.the null hypothesis is rejected
+
+Correct Answer: it is possible that a type II error was committed
+
+PREP Pearl(s):
+A type II error (the probability of which is known as β ) occurs when the study fails to reject the null
+hypothesis when there is indeed a difference between the two study groups.
+A type I error (the probability of which is known as α ) incorrectly rejects the null hypothesis.
+The power of a study is equal to 1 − β . The higher the power, the lower the possibility of a type II error,
+and although achieving a power to 100% would eliminate a type II error, this is nearly impossible in
+most studies. Acceptable values for β  are usually set at 0.2 or less, making the power set at 0.8 or
+higher.
+
+Critique:
+The null hypothesis (H ) of a study states that there is no difference between the two study groups, whereas
+the researchers’ hypothesis hopes to find a difference between the two study groups (also known as
+alternative hypothesis). In this particular study, no difference was found between the two groups; therefore,
+the alternative hypothesis was not supported and the null hypothesis was not rejected.
+While testing the null hypothesis, 2 primary types of errors may occur: type I error (the probability of which is
+known as α ) and type II error (the probability of which is known as β ). A type I error incorrectly rejects the null
+hypothesis. This means that the study has determined a difference between the two study groups when in
+reality, there is no difference between the groups. Because the null hypothesis was not rejected in this
+particular study, a type I error was not possible, making this choice incorrect.08/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 27/99
+A type II error occurs when the study fails to reject the null hypothesis when there is indeed a difference
+between the two study groups. Because this study cited no difference between the two study groups and
+therefore failed to reject the null hypothesis, the study result is either true or a type II error was committed
+(see chart below).
+  Research: fails to reject H Research: rejects the H
+Reality: H  is true CORRECT Type I error
+Reality: H  is false Type II error CORRECT
+For a given sample size, type I and type II errors have an inverse relationship, meaning that the probability of
+a type I error increases if the risk of a type II error is minimized and vice versa. 
+The power of a study is equal to 1 − β . Power, therefore, is the probability of correctly rejecting the null
+hypothesis when it is false and detecting a difference between the two groups when there truly is a
+difference. The higher the power, the lower the possibility of a type II error, and although achieving a power
+to 100% would eliminate a type II error, this is nearly impossible in most studies. Acceptable values for β  are
+usually set at 0.2 or less, making the power set at 0.8 or higher. As the power increases, the risk for a type I
+error also increases and acceptable values of α  are often set at 0.05. This means that the probability of a type
+I error is at most 5% in the study.
+Su gg ested Reading( s)
+Hazra A, Gogtay N. Biostatistics series module 2: overview of hypothesis testing. Indian J Dermatol.
+2016;61(2):137-145. doi: 10.4103/0019-5154.177775
+Motulsky HJ, ed. P values and statistical hypothesis testing. In: Prism 4 Statistics Guide: Statistical Analysis
+for Laboratory and Clinical Researchers.  GraphPad Software Inc; 2005:16-19.
+Content D om ain
+Statistics
+The correct answer is: it is possible that a type II error was committed
+
+
+--------------------------------------------------------------------------------
+
+Question 6 of 10 (Original Question #28)
+
+A pediatric nephrologist is studying factors that affect phosphorus levels in children with end-stage renal
+disease (ESRD). The nephrologist has collected laboratory data on all children with ESRD over a 5-year period
+from 6 dialysis centers serving a large, urban, diverse community. Fifty percent of the children were identified
+as Hispanic, 30% as African-American, 10% as white, and 10% did not have race/ethnicity information
+available. 
+Of the following, the BEST statistical approach to determine whether mean serum phosphorus levels differ
+by race/ethnicity in children with ESRD in this cohort is
+A.analysis of variance 
+B.Chi-square
+C.linear regression
+D.paired sample t test
+
+Correct Answer: analysis of variance
+
+PREP Pearl(s):
+In general, variables can be categorical (eg, male, female) or continuous (eg, age, serum phosphorus).
+Categorical variables can be dichotomous (eg, vaccinated or unvaccinated) or fall into more than two
+categories (eg, race/ethnicity). 
+An analysis of variance is the best option for comparing mean values of more than 2 groups, assuming
+that the data are normally distributed. When normal distribution is not present, it is generally better to
+use the nonparametric Kruskal–Wallis test to compare medians of the groups. 
+The t test and analysis of variance are used when the mean of a continuous variable is being compared
+between groups. A t test is used to compare 2 groups (eg, the mean age of 2 different groups). A paired
+t test is used when the measured outcome is assessed twice in the same group (eg, pre- and post-
+treatment). An independent t test is used when two groups are being compared on a single measured
+outcome (eg, adult height in children with and without a history of childhood chronic kidney disease).
+
+Critique:
+The pediatric nephrologist wants to know whether mean serum phosphorus levels differ by race/ethnicity,
+which includes more than 2 mutually exclusive categories. An analysis of variance (ANOVA) is the best option
+for comparing mean values of more than 2 groups, assuming that the data are normally distributed. 
+The choice of the most appropriate statistical test to use depends on characteristics of the variables ( Table ).
+In general, variables can be categorical (eg, male, female) or continuous (eg, age, serum phosphorus).
+Categorical variables can be dichotomous (eg, vaccinated or unvaccinated) or fall into more than 2 categories
+(eg, race/ethnicity). In this case, we are considering a quantitative continuous variable, serum phosphorus.
+There are 3 main types of statistical analysis: 8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 61/99
+1) descriptive (eg, mean age in one population) 
+2) comparative (eg, t test, ANOVA, Chi square) 
+3) measure associations between variables (eg, linear regression, Pearson correlation)
+It is important to remember that statistical associations do not prove causality. The t test and ANOVA are
+used when the mean of a continuous variable is being compared between groups (as in the vignette). A t test
+is used to compare 2 groups (eg, the mean age of 2 different groups). A paired t test is used when the
+measured outcome is assessed twice in the same group (eg, pre- and post-treatment). An independent t test
+is used when 2 groups are being compared on a single measured outcome (eg, adult height in children with
+and without a history of childhood chronic kidney disease). A Chi square ( χ 2) statistic is used to investigate
+whether the distribution of categorical variables differs between groups (eg, examining risk of influenza
+infection [yes/no] in children who were vaccinated versus unvaccinated).
+If the data for the outcome variable is skewed (as is the case with many biological system variables), choosing
+a nonparametric test may be most appropriate. In the case of multiple group comparisons, the Kruskal–
+Wallis test is typically used. With very large sample sizes, the P values provided by parametric and
+nonparametric values are often very similar, even for data which do not have a normal distribution.
+Statistical tests for testing associations depend on characteristics of the variables, including the number of
+groups in each variable to be compared, whether subjects in the variable groups are matched, and how the
+outcome variable being compared between the 2 groups is measured. A Pearson’s correlation is a
+measurement of the linear association between 2 continuous variables and cannot be used for categorical
+variables, such as race/ethnicity. A regression analysis can be performed using both categorical and
+quantitative variables and allows for testing for association of multiple variables with an outcome (eg, age,
+sex, and race/ethnicity with mean serum phosphorus level). 
+The null hypothesis of the ANOVA is that 2 or more groups have the same mean. ANOVA uses the F statistic,
+which represents the amount of variability between samples versus the overall variability of all samples.
+F = between the group variability/within group variability; between the group variability is calculated by taking
+the sum of the square difference in the mean of each group minus the overall mean of all the data, times the
+number of observations, divided by number of groups minus 1: 
+,
+where Y  is the sample mean in the i  group, n  is the number of observations in the i  group, Y is the overall
+mean of the data, and K is the number of groups.
+Within-group variability is calculated by taking the sum of the square difference of measured values in the
+group, divided by the sample size minus the number of groups:
+where Y is the j observation in the i out of K groups, and N is the overall sample size. 
+Just as with the t test, there is a chart of values for the F test with critical F statistics that indicate when the
+null hypothesis is rejected. This varies depending upon the “degrees of freedom,” which is calculated as
+total df = n - 1, where n is the total number of observations, 
+between groups df = number of groups - 1, 
+and within-groups df = total df - between-groups df, for a one-way ANOVA.
+In general, statistical software is used to perform ANOVA analyses. A 2-way ANOVA is also possible, and
+allows one to test whether the means that differ between groups are different when the groups are divided
+by 2 different characteristics (eg, male/female and race/ethnicity).ithith
+ijthth8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 62/99
+Su gg ested Reading( s)
+Bewick V, Cheek Liz, Ball J. Statistics review 9: one-way analysis of variance. Crit Care . 2004;8(2):130-136.
+doi:10.1186/cc2836.
+Campbell MJ, Machin D, Walters SJ. Medical Statistics: A Textbook for the Health Sciences. Wiley-Blackwell;
+2007.
+Madsen BS. Statistics for Non-Statisticians.  Springer; 2011.
+Content D om ain
+Statistics
+The correct answer is: analysis of variance
+
+
+--------------------------------------------------------------------------------
+
+Question 7 of 10 (Original Question #34)
+
+A pediatric hospitalist is interested in studying asthma readmissions in her hospital. The hospital admits a
+large number of patients with asthma. She wants to compare the proportion of asthma readmissions in
+patients discharged with an asthma action plan compared to asthma patients who are discharged without an
+asthma action plan.
+Of the following, the MOST appropriate statistical test for this study is
+A.analysis of variance
+B.chi-square test 
+C.McNemar test
+D.paired t test
+
+Correct Answer: chi-square test
+
+PREP Pearl(s):
+Choosing an appropriate statistical method depends on the research question, study design, type of
+variables, and the structure of the data.
+Categorical variables are variables that have 2 or more groups.
+A chi-square test is used to compare unpaired  samples with categorical  variables.
+
+Critique:
+Quantitative statistical methods can be (a) descriptive or (b) inferential. Descriptive statistics organize the
+data/information in measures of central tendency and measures of variability/spread. Inferential statistics
+involve drawing predictions/inferences about a population from the data of a sample of the population. The
+important steps involved in statistical testing include (a) stating the research question, (b) formulating the null
+and alternative hypotheses, (c) selecting the appropriate statistical test, (d) specifying the level of significance
+(ie, 0.05), (e) analyzing statistical test results, (f) accepting or rejecting the null hypothesis, and (g) interpreting
+the test result.
+Choosing an appropriate statistical method depends on the research question, study design, type of
+variables, and the structure of the data. Variables are individual characteristics that have different values.
+Examples of variables include height, body mass index, and blood pressure. Variables can be dependent or
+independent, categorical, or continuous. Categorical variables are variables that have 2 or more groups.
+Categorical variables can be dichotomous (eg, dead/alive), nominal (eg, race), or ordinal (eg, severity of pain).
+Continuous variables are variables that can have an infinite number of values between any 2 intervals (eg,
+weight). The design of a study can be paired or unpaired. A paired design uses data from the same test
+subjects at different points of time (eg, before and after treatment), while an unpaired study design uses data
+from different test subjects.8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 76/99
+For comparison of groups for categorical  endpoints, the following statistical methods are used. For the
+comparison of proportions between unpaired  samples with categorical variables, Fisher exact or chi-square
+tests are used. Fisher exact test is preferred for smaller sample sizes. For larger sample sizes (n > 60), the chi-
+square test can be used ( Table ). For comparison of paired  samples for categorical variables, the McNemar
+test is used. 
+For comparison of means between groups for continuous  variables, the following statistical methods are
+used. Paired t test is used for comparison of means from 2 paired  samples for normally distributed
+continuous parameters. For comparison of means between more than 2  samples for continuous variables,
+analysis of variance (ANOVA) is used.
+In this vignette, the hospitalist wants to compare the proportion of asthma patients readmitted. This
+endpoint is a categorical dichotomous variable (whether readmittted or not). Two unpaired samples will be
+compared: discharged with vs discharged without an asthma action plan. Hence, the chi-square test is the
+most appropriate test for this study, with its larger sample size.
+Su gg ested Reading( s)
+The chi-square statistic: Tests for goodness of fit and independence. In: Gravetter FJ, Wallnau LB, eds.
+Essentials of Statistics for the Behavioral Sciences. 10th ed. Thomson/Wadsworth; 2017:559-602.
+Estimating sample size and power: Applications and examples. In: Hulley SB, Cummings SR, Browner
+WS, Grady DG, Newman TB, eds. Designing Clinical Research: An Epidemiologic Approach . 4th ed.
+Lippincott Williams & Wilkins; 2013:55-72.
+Content D om ain
+Statistics
+The correct answer is: chi-square test
+
+
+--------------------------------------------------------------------------------
+
+Question 8 of 10 (Original Question #29)
+
+A new medication has been studied for use in patients with juvenile arthritis. In polyarticular rheumatoid
+factor–positive juvenile idiopathic arthritis, it has been shown to reduce the 2-year risk of joint erosion from
+30% to 10%. 
+Of the following, the NUMBER of patients needed to be treated with this medication to decrease the number
+of children with joint erosion by 1 is
+A.3
+B.5
+C.15
+D.20
+
+Correct Answer: 5
+
+PREP Pearl(s):
+Number needed to treat (NNT) is the number of patients who would need to be treated to prevent the
+unwanted outcome. It is calculated as NTT = 1 / absolute risk reduction = 1 / risk  - risk
+. 
+Relative risk or risk ratio describes the incidence in exposed individuals divided by the incidence in
+unexposed individuals. Relative risk helps statisticians understand the magnitude of a risk in
+comparison  with a standard.
+
+Critique:
+In the study described in the vignette, the absolute risk of joint erosion over 2 years is reduced from 30% to
+10%. Absolute risk is a measure of the proportion of the population who will be prevented from developing
+an outcome by receiving a treatment. The absolute risk reduction in this study would be 30% − 10% = 20%
+absolute risk reduction.
+The benefit of an intervention can be expressed as a number needed to treat (NNT). The NNT is the
+reciprocal of the absolute risk reduction, or 1/20% = 5. In this study, 5 patients would need to be treated with
+this medication to reduce the outcome of joint erosion over 2 years by 1 patient. The NNT is an increasingly
+popular expression of absolute benefit or risk because it is relatively intuitive to understand.
+Relative risk or risk ratio, on the other hand, describes the incidence in exposed individuals divided by the
+incidence in unexposed individuals. The relative risk of joint erosion would be 10% / 30%, or 0.33. Relative risk
+helps us understand the magnitude of a risk in comparison  with a standard.
+In order to calculate absolute risk reduction or relative risk in a study, the study design needs to calculate
+incidence (risk) over time, as is typically seen in randomized control studies or longitudinal cohort studies. 
+Su gg ested Reading( s)(exposed)
+(unexposed)8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 64/99
+Elmore JG, Wild DMG, Nelson HD, Katz DL. Jekel’s Epidemiology, Biostatistics, Preventive Medicine, and
+Public Health.  5th ed. Elsevier; 2020: chap 6
+Mendes D, Alves C, Batel-Marques F. Number needed to treat (NNT) in clinical literature: an appraisal.
+BMC Medicine.  2017;15:112. doi: 10.1186/s12916-017-0875-8 .
+Content D om ain
+Statistics
+The correct answer is: 5
+
+
+--------------------------------------------------------------------------------
+
+Question 9 of 10 (Original Question #39)
+
+A researcher is reviewing a study on adolescents with celiac disease (CD). The goal of the study is to
+determine whether adherence to a gluten-free diet differs based on the method of diagnosis—endoscopic
+biopsy or serologic markers alone. The outcome measure is the serum tissue transglutaminase (TTG) level 1
+year after diagnosis and initiation of the gluten-free diet. A serum immunoglobulin (Ig) A TTG value of less
+than 15 was selected as normal. 
+The results of the study show the mean TTG level 1 year after diagnosis and initiation of diet management in
+patients with celiac disease:
+Biopsy-conﬁrmed (95% conﬁdence interval) Serology-conﬁrmed (95% conﬁdence interval)
+TTG 15 U/mL (10-20 U/mL) 30 U/mL (18-42 U/mL)
+Of the following, the BEST interpretation of these results is that
+A.95% of the subjects with biopsy-confirmed CD had TTG levels between 10 and 20
+B.there is 95% certainty that the mean TTG level for serology-confirmed CD in the population
+would be between 18 and 42
+C.there is 95% likelihood that the TTG levels of biopsy-confirmed and serology-confirmed patients
+with CD were significantly different
+D.there is a 95% probability that all serology-confirmed CD patients in the population will have TTG
+levels between 18 and 42
+
+Correct Answer: there is 95% certainty that the mean TTG level for serology-confirmed CD in the
+
+PREP Pearl(s):
+Confidence intervals are routinely set at 90%, 95%, or 99%, indicating the percent certainty that the
+true effect (ie, population mean) falls within the interval.
+Confidence intervals (CIs) inform the reader about the precision of the estimates. Narrow CIs are
+typically seen when the sample size is large, because the standard deviations decrease as the sample
+size (n) increases.
+Confidence intervals also inform the reader about statistical significance. For differences, a confidence
+interval that does not cross zero is significant; for ratios, it matters whether the confidence interval
+crosses 1.
+
+Critique:
+8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 87/99
+The study in the vignette investigated whether children whose celiac disease (CD) was diagnosed with a
+biopsy would be more adherent to a gluten-free diet than those diagnosed with serology alone. The metric
+used was the serum IgA tissue transglutaminase (TTG) level at one year after initiation of a gluten-free diet.
+Two confidence intervals (CIs) are presented in the vignette, one in the serology-confirmed group and one in
+the biopsy-confirmed group ( Table ).
+Confidence intervals are defined as a range within which a true value (ie, population mean, median, or
+proportion) is likely to fall. Confidence intervals estimate a population parameter using observed data from a
+study sample of the population. Confidence intervals are routinely set at 90%, 95%, or 99%, indicating the
+percent certainty that the true effect values will fall within the interval. Confidence intervals inform the reader
+about the precision of the estimates. The narrower the CI, the less variation is present in the sample data and
+the more likely the TTG levels of the sample reflect the TTG levels of the population. Narrow CIs are typically
+seen when the sample size is large, because the standard error decreases as the sample size (n) increases. In
+addition, CIs are affected by sample variability. 
+Confidence intervals also inform the reader about statistical significance. In the vignette, the CIs for the 2
+groups overlap (ie, 10 to 20 for the biopsy-confirmed group, and 18 to 42 for the serology-confirmed group),
+therefore, the difference between the sample means is not statistically significant. 
+Confidence intervals can be interpreted several ways. For this vignette, the day-to-day common use
+interpretation of a 95% CI would be that the investigator is 95% confident that the mean TTG level at one year
+falls from 10 to 20 in the biopsy-confirmed group and from 18 to 42 in the serology-confirmed group.
+Similarly, the investigator is also 95% confident that the population mean (ie, actual or true mean of the
+population) for each group falls within the respective ranges.
+Technically, the 95% CI means that, if the experiment were repeated 100 times with the same sample size
+drawn from the same population of interest, the estimated mean (or other measurement) would fall within
+this range 95 out of 100 times.
+A 95% CI does not indicate that 95% of all values will fall within this range. Similarly, it does not mean that
+there is a 95% probability that all values would fall within this range, because it is only an estimate that the
+mean would be in this range. 
+Su gg ested Reading( s)
+Garcia-Perez MA, Alcala-Quintana R. The interpretation of scholars’ interpretations of confidence
+intervals: criticism, replication, and extension of Hoekstra et al (2014). Front Psychol.  2016;7:1042.
+doi:10.3389/fpsyg.2016.01042
+Hoekstra R, Morey RD, Rouder JN, Wagenmakers EJ. Robust misinterpretation of confidence intervals.
+Psychon Bull Rev.  2014;21(5):1157-1164. doi: 10.3758/s13423-013-0572-3
+Content D om ain
+Statistics
+The correct answer is: there is 95% certainty that the mean TTG level for serology-confirmed CD in the
+population would be between 18 and 42
+
+
+--------------------------------------------------------------------------------
+
+Question 10 of 10 (Original Question #37)
+
+A researcher is designing a study on how long it takes Epstein-Barr virus (EBV) IgG-negative pediatric
+transplant recipients to convert to EBV IgG-positive status after receiving a kidney from an EBV-positive
+donor. There will be 2 groups; one receives a 90-day course of antiviral therapy after transplant and another
+receives a 365-day course of antiviral therapy after transplant.
+Of the following, the BEST statistical approach is
+A.1-way analysis of variance
+B.survival analysis 
+C.t test
+D. χ2 test
+
+Correct Answer: survival analysis
+
+PREP Pearl(s):
+Kaplan-Meier survival analysis is a great way to visually depict outcomes over time.
+Additional analysis beyond the survival curve is required to determine whether a statistical difference
+is present.
+It is important to note the number of patients remaining at each observation period, especially to the
+right. Large visual differences with small patient numbers often occur at the end of the observation.
+
+Critique:
+This research design is looking at a time-to-event occurrence (Epstein-Barr virus [EBV] IgG conversion). The
+preferred statistical approach is a Kaplan-Meier survival analysis. In this analysis, each patient has 3
+characteristics: assigned study group (short-term or long-term antiviral treatment), time of observation, and
+status at the end of observation (event occurrence, censored [eg, dropout]). The results can graphically be
+displayed as shown in Figure 1 .
+The survival analysis curve in Figure 1 shows survival as a stepwise function because survival is not a
+continuous outcome (events happen discretely). The size of the steps in the curve can often help depict the
+number of patients. In addition, some survival analysis curves list the number of patients remaining at the
+end of an observation period. This information is usually listed below the time on the x-axis, which is
+especially helpful when few patients make it to the end of the final observation period. It is important that the
+censored patients (especially dropouts) are depicted or described. In Figure 1 it is not possible to tell how
+many patients dropped out (censored).
+There are different types of censoring. Those patients who have no event at the end of observation or who
+drop out (death, other event occurrence, or ending participation) without an event are said to be right
+censored. Those patients who enroll in a study group but who have an event at an unknown time before the
+first observation are said to be left censored (patients who are IgG negative at evaluation and are randomized8/28/25, 11:42 AM Basic PREP Statistics Assessment - Learner Mode: Attempt review | Pediatrics
+ 83/99
+at the time of transplant but have already converted at the first observation after transplant would be left
+censored). Interval censoring occurs if the event occurs between 2 successive ascertainments. In this
+example, IgG conversions would be expected to occur between successive laboratory samplings, and
+procedures for interval censoring would be needed. In Figure 2 , the IgG level is checked every 2 months, and
+so a positive conversion at the 4-month check (as shown for interval censoring) occurred between 2 and 4
+months and would need to be assigned a time (likely either 4 months or the midpoint between observations,
+3 months). For some events (eg, death), the time is typically known precisely.
+Kaplan-Meier survival curves can be statistically compared. A log-rank test is commonly performed. At each
+observation time point, an χ 2 test is performed for each group, and the log-rank test sums the results. Thus,
+in our example, the log-rank test can determine whether there is a statistical difference between short-term
+and long-term antiviral therapy. Another way to analyze the survival curve would be the hazard ratio, which
+describes relative risk of events. The hazard ratio is for the full survival curve. In our example, it would be the
+relative hazard of EBV conversion (short-term vs long-term antiviral therapy) for the period of the study. A
+more visual approach to quantify the differences between survival curves is to plot the confidence interval at
+each observation point.
+The χ 2 is appropriate to use for nominal data. In the example provided, this would be EBV conversion or no
+EBV conversion. In our example, if all patients were observed for 2 years after transplant, an χ 2 analysis could
+be performed on the rate of EBV conversion with short-term vs long-term antiviral therapy but would be
+unable to answer the fundamental question of whether there is a difference in the time to EBV IgG
+conversion. In addition, χ 2 analysis does not allow censoring for dropouts. The χ 2 test would be used as part
+of the log-rank test or hazard ratio mentioned above to analyze the results of the survival analysis.
+The t test is used to compare the mean in one group with the mean in another group and uses continuous
+data. In our example, if all the patients were observed for 2 years after transplant and all converted during
+the observation, the mean time to EBV IgG conversion with short-term vs long-term antiviral therapy could be
+compared using the t test if no censoring was required (all patients converted in study timeframe, no
+dropouts, etc).
+Similarly, 1-way analysis of variance could deal with continuous data (such as time to EBV IgG conversion) but
+does not allow censoring and would not be suitable if anyone dropped out or did not convert. 
+Su gg ested Reading( s)
+Hess AS, Hess JR. Kaplan-Meier survival curves. Transfusion . 2020;60(4):670-672. doi: 10.1111/trf.15725
+Ludbrook J, Royse AG. Analysing clinical studies: principles, practice and pitfalls of Kaplan-Meier plots.
+ANZ J Surg.  2008;78(3):204-210. doi: 10.1111/j.1445-2197.2007.04405.x
+Rich JT, Neely JG, Paniello RC, Voelker CC, Nussenbaum B, Wang EW. A practical guide to understanding
+Kaplan-Meier curves. Otolaryngol Head Neck Surg. 2010;143(3):331-336.
+doi:10.1016/j.otohns.2010.05.007
+Zwiener I, Blettner M, Hommel G. Survival analysis: part 15 of a series on evaluation of scientific
+publications. Dtsch Arztebl Int. 2011;108(10):163-169. doi: 10.3238/arztebl.2010.0163
+Content D om ain
+Statistics
+The correct answer is: survival analysis
+
+
+--------------------------------------------------------------------------------

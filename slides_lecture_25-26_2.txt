@@ -1,0 +1,260 @@
+Slide 1: Title Slide
+
+- Title: Biostatistics & Epidemiology for the Modern Clinician — Part 2: Validity, Inference & Time‑to‑Event
+- Subtitle: From Reliable Measures to Confidence Intervals and Kaplan–Meier
+- Presenter Name/Department: [Your Name/Department Here]
+- Date: [Date of Presentation]
+
+Slide 2: Lecture Overview
+
+- Title: What We’ll Cover Today
+- Content (Bulleted List):
+  - Part 1: Measurement That Matters (Reliability & Validity)
+    - Differentiate reliability (repeatability) and validity (truth).
+    - Common reliability types: test–retest, internal consistency, inter‑rater.
+  - Part 2: Hypothesis Testing in the Wild
+    - What a p‑value means and when to reject H₀.
+    - Power and Type I/II errors (planning studies to avoid mistakes).
+  - Part 3: Choosing the Right Statistical Test
+    - When to use ANOVA vs chi‑square, with clinical examples.
+  - Part 4: Clinical Impact & Precision
+    - ARR → NNT and interpreting 95% confidence intervals.
+  - Part 5: Time‑to‑Event Outcomes
+    - Kaplan–Meier curves, censoring, and log‑rank interpretation.
+
+Slide 3: How We’ll Work Through Questions
+
+- Present a clinical vignette and answer options
+- 20–30 seconds of think time (pair‑share)
+- Reveal the answer and debrief with 2–3 teaching points
+- Where helpful, we’ll add a simple visual to anchor the concept
+
+Slide 4: Part 1: Measurement That Matters (Reliability & Validity)
+
+Slide 5: Clinical Question — Reliability vs Validity
+
+A physician is meeting with a group of fellows for their weekly research symposium, and the topic of
+  discussion is reliability and validity. They discuss a scenario regarding a hospital that is testing a new
+  depression screening tool. One of the goals is to compare the use of a tool between residents and attending
+  physicians, and evaluate the degree to which the 2 groups independently score patients positive for
+  depression.  Of the following, this scenario refers to the research concept of A.content validity B.internal
+  consistency reliability C.inter-rater reliability * D.predictive validity
+
+Slide 6: Answer & Explanation — Reliability vs Validity
+
+- Correct Answer: inter-rater reliability
+- Key Points:
+  - Reliability is the consistency (repeatability) of scores (eg, you get the same temperature measurement
+  - with repeated tests).
+  - Validity  describes whether a test or instrument actually measures what is intended (eg, a temporal
+  - thermometer measures the core body temperature).
+- Visual suggestion: Graphic: three mini‑panels showing test–retest, internal consistency (α), and inter‑rater agreement.
+
+Slide 7: Clinical Question — Generalizability (External Validity)
+
+A hospitalist works at a large, urban hospital that serves a diverse pediatric patient population with a high
+  burden of severe asthma and atopic disease. For an upcoming journal club, the hospitalist division will review
+  a recently published randomized controlled trial. The trial concludes that a new medication for asthma
+  exacerbations, “BtrBreth,” improves asthma symptoms and decreases length of hospital stay as compared to
+  standard asthma therapy. The study was a randomized controlled trial conducted at 20 small pediatric hospitals
+  in rural England with a total sample size of 1,500 patients. The researchers included children with
+  intermittent asthma admitted for an asthma exacerbation and excluded any with persistent asthma, allergies,
+  eczema, or other comorbidities. Of the following, the application of this study to the hospitalist’s patients
+  is MOST limited by a lack of A.causality B.generalizability * C.internal validity D.power
+
+Slide 8: Answer & Explanation — Generalizability (External Validity)
+
+- Correct Answer: generalizability
+- Key Points:
+  - Generalizability (external validity) is the degree to which a research study’s results can be applied to
+  - other populations and settings.
+  - Internal validity evaluates the causal relationship of variables in a particular research study.
+- Visual suggestion: Matrix: Internal Validity (low→high) × External Validity (low→high) with the study placed in a quadrant.
+
+Slide 9: Part 2: Hypothesis Testing in the Wild
+
+Slide 10: Clinical Question — Interpreting a p‑value (When to Reject H₀)
+
+Investigators in a recent study assessed admission rates for acute croup. They hypothesized that there would
+  be a significant difference in admission rates among children who received one treatment with nebulized
+  epinephrine compared with children who received multiple treatments of nebulized epinephrine. They sought to
+  detect a difference of 20% in admission rates with a predefined α  of .05 and 80% power to reach statistical
+  significance. Using a large inpatient database, they identified 80,000 children who received one dose of
+  nebulized epinephrine and 8,000 children who received more than one dose of nebulized epinephrine for acute
+  croup. Admission rates were 10% in the former group and 70% in the latter group ( P =.01).  Of the following,
+  the statement that BEST reflects the results of this study is A.multiple doses of epinephrine is a leading
+  cause of admission for croup B.the null hypothesis regarding difference in admission rates should be rejected
+  * C.the odds of admission were 7 times higher with multiple doses of epinephrine D.the study was underpowered
+  to find a significant difference between the groups
+
+Slide 11: Answer & Explanation — Interpreting a p‑value (When to Reject H₀)
+
+- Correct Answer: the null hypothesis regarding difference in admission rates should be rejected
+- Key Points:
+  - The P value is the probability that an outcome at least as extreme is observed if the null hypothesis is
+  - true.
+  - Obtaining a result with a  P value of less than α  = 0.05 (5%) does not guarantee that the null hypothesis
+  - is wrong, since a type I error (or false positive error) may still have occurred.
+- Visual suggestion: Curve under H₀ with shaded tail area labeled ‘p = P(Data|H₀)’; note that p is not effect size.
+
+Slide 12: Clinical Question — Power & Type II Error (β)
+
+A clinical randomized controlled trial is performed to test the efficacy of a new type of corticosteroid
+  inhaler as compared with “usual care” in preventing exacerbations of asthma in children. Enough patients are
+  enrolled to provide a statistical power of 70%. Asthma severity, as measured by means of a validated score,
+  was reduced by 35% in the intervention group and by 28% in the usual care group (p = .13). Using the common
+  criterion of p < .05 as the cutoff point for significance, the authors conclude that there is no statistical
+  difference between intervention and control groups. Of the following, the BEST estimate of the probability
+  that the authors have reached their conclusion in error is A.5% B.7% C.13% D.30% *
+
+Slide 13: Answer & Explanation — Power & Type II Error (β)
+
+- Correct Answer: 30%
+- Key Points:
+  - The maximum probability of a type I error (inappropriately rejecting the null hypothesis) is determined
+  - by the level of significance chosen for the hypothesis test ( α , usually .05).
+  - The likelihood of type II error (inappropriately failing to reject the null hypothesis) is determined by the
+  - power of the hypothesis test (power = 1 − β ).
+- Visual suggestion: Simple power curve: power vs sample size; annotate α, effect size, variance levers.
+
+Slide 14: Clinical Question — Type I vs Type II Errors (Failing to Reject H₀)
+
+A new drug is being studied for the treatment of eosinophilic esophagitis. It is a formulation of budesonide
+  in individual pouches with a ready-made viscous solution that eliminates the need for the patient or parent to
+  mix budesonide liquid vials before ingestion. The study randomized 50 children between the ages of 4 and 14
+  years with eosinophilic esophagitis into 2 groups of medical therapies. They compared the results of
+  esophageal biopsies from the diagnostic endoscopy to a subsequent endoscopy after 3 to 5 months on either
+  formulation of budesonide. The study failed to find a significant difference in the number of eosinophils per
+  HPF in those who used the new drug compound compared with those who used the budesonide vials mixed with a
+  sucralose-based artificial sweetener. Of the following, the MOST accurate statement regarding this study is
+  that A.the alternative hypothesis is supported B.it is possible that a type I error was committed C.it is
+  possible that a type II error was committed * D.the null hypothesis is rejected
+
+Slide 15: Answer & Explanation — Type I vs Type II Errors (Failing to Reject H₀)
+
+- Correct Answer: it is possible that a type II error was committed
+- Key Points:
+  - A type II error (the probability of which is known as β ) occurs when the study fails to reject the null
+  - hypothesis when there is indeed a difference between the two study groups.
+  - A type I error (the probability of which is known as α ) incorrectly rejects the null hypothesis.
+  - The power of a study is equal to 1 − β . The higher the power, the lower the possibility of a type II error,
+- Visual suggestion: Decision tree: true/false state vs reject/fail to reject decisions; highlight Type I and Type II cells.
+
+Slide 16: Part 3: Choosing the Right Statistical Test
+
+Slide 17: Clinical Question — Choosing a Test: ANOVA for >2 Means
+
+A pediatric nephrologist is studying factors that affect phosphorus levels in children with end-stage renal
+  disease (ESRD). The nephrologist has collected laboratory data on all children with ESRD over a 5-year period
+  from 6 dialysis centers serving a large, urban, diverse community. Fifty percent of the children were
+  identified as Hispanic, 30% as African-American, 10% as white, and 10% did not have race/ethnicity information
+  available.  Of the following, the BEST statistical approach to determine whether mean serum phosphorus levels
+  differ by race/ethnicity in children with ESRD in this cohort is A.analysis of variance * B.Chi-square
+  C.linear regression D.paired sample t test
+
+Slide 18: Answer & Explanation — Choosing a Test: ANOVA for >2 Means
+
+- Correct Answer: analysis of variance
+- Key Points:
+  - In general, variables can be categorical (eg, male, female) or continuous (eg, age, serum phosphorus).
+  - Categorical variables can be dichotomous (eg, vaccinated or unvaccinated) or fall into more than two
+  - categories (eg, race/ethnicity).
+  - An analysis of variance is the best option for comparing mean values of more than 2 groups, assuming
+- Visual suggestion: Boxplots for 4 groups with means; caption: ‘One‑way ANOVA compares mean differences across groups’.
+
+Slide 19: Clinical Question — Choosing a Test: Chi‑Square for Proportions
+
+A pediatric hospitalist is interested in studying asthma readmissions in her hospital. The hospital admits a
+  large number of patients with asthma. She wants to compare the proportion of asthma readmissions in patients
+  discharged with an asthma action plan compared to asthma patients who are discharged without an asthma action
+  plan. Of the following, the MOST appropriate statistical test for this study is A.analysis of variance B.chi-
+  square test * C.McNemar test D.paired t test
+
+Slide 20: Answer & Explanation — Choosing a Test: Chi‑Square for Proportions
+
+- Correct Answer: chi-square test
+- Key Points:
+  - Choosing an appropriate statistical method depends on the research question, study design, type of
+  - variables, and the structure of the data.
+  - Categorical variables are variables that have 2 or more groups.
+  - A chi
+- Visual suggestion: 2×2 table with observed counts and expected counts; footnote: use Fisher’s exact when small expected cell counts.
+
+Slide 21: Part 4: Clinical Impact & Precision
+
+Slide 22: Clinical Question — Effect Size in Practice: ARR → NNT
+
+A new medication has been studied for use in patients with juvenile arthritis. In polyarticular rheumatoid
+  factor–positive juvenile idiopathic arthritis, it has been shown to reduce the 2-year risk of joint erosion
+  from 30% to 10%.  Of the following, the NUMBER of patients needed to be treated with this medication to
+  decrease the number of children with joint erosion by 1 is A.3 B.5* C.15 D.20
+
+Slide 23: Answer & Explanation — Effect Size in Practice: ARR → NNT
+
+- Correct Answer: 5
+- Key Points:
+  - Number needed to treat (NNT) is the number of patients who would need to be treated to prevent the
+  - unwanted outcome. It is calculated as NTT = 1 / absolute risk reduction = 1 / risk
+  - risk
+  - .
+- Visual suggestion: Worked example in a number line: Control 30% vs Treatment 10% → ARR=0.20 → NNT=5.
+
+Slide 24: Clinical Question — Confidence Intervals: Meaning & Pitfalls
+
+A researcher is reviewing a study on adolescents with celiac disease (CD). The goal of the study is to
+  determine whether adherence to a gluten-free diet differs based on the method of diagnosis—endoscopic biopsy
+  or serologic markers alone. The outcome measure is the serum tissue transglutaminase (TTG) level 1 year after
+  diagnosis and initiation of the gluten-free diet. A serum immunoglobulin (Ig) A TTG value of less than 15 was
+  selected as normal.  The results of the study show the mean TTG level 1 year after diagnosis and initiation of
+  diet management in patients with celiac disease: Biopsy-conﬁrmed (95% conﬁdence interval) Serology-conﬁrmed
+  (95% conﬁdence interval) TTG 15 U/mL (10-20 U/mL) 30 U/mL (18-42 U/mL) Of the following, the BEST
+  interpretation of these results is that A.95% of the subjects with biopsy-confirmed CD had TTG levels between
+  10 and 20 B.there is 95% certainty that the mean TTG level for serology-confirmed CD in the population would
+  be between 18 and 42* C.there is 95% likelihood that the TTG levels of biopsy-confirmed and serology-confirmed
+  patients with CD were significantly different D.there is a 95% probability that all serology-confirmed CD
+  patients in the population will have TTG levels between 18 and 42
+
+Slide 25: Answer & Explanation — Confidence Intervals: Meaning & Pitfalls
+
+- Correct Answer: there is 95% certainty that the mean TTG level for serology-confirmed CD in the
+- Key Points:
+  - Confidence intervals are routinely set at 90%, 95%, or 99%, indicating the percent certainty that the
+  - true effect (ie, population mean) falls within the interval.
+  - Confidence intervals (CIs) inform the reader about the precision of the estimates. Narrow CIs are
+  - typically seen when the sample size is large, because the standard deviations decrease as the sample
+- Visual suggestion: Two group means with 95% CI bars; show overlapping and non‑overlapping cases; warn about misinterpretation.
+
+Slide 26: Part 5: Time‑to‑Event Outcomes
+
+Slide 27: Clinical Question — Time‑to‑Event Outcomes: Kaplan–Meier & Censoring
+
+A researcher is designing a study on how long it takes Epstein-Barr virus (EBV) IgG-negative pediatric
+  transplant recipients to convert to EBV IgG-positive status after receiving a kidney from an EBV-positive
+  donor. There will be 2 groups; one receives a 90-day course of antiviral therapy after transplant and another
+  receives a 365-day course of antiviral therapy after transplant. Of the following, the BEST statistical
+  approach is A.1-way analysis of variance B.survival analysis * C.t test D. χ2 test
+
+Slide 28: Answer & Explanation — Time‑to‑Event Outcomes: Kaplan–Meier & Censoring
+
+- Correct Answer: survival analysis
+- Key Points:
+  - Kaplan
+  - Meier survival analysis is a great way to visually depict outcomes over time.
+  - Additional analysis beyond the survival curve is required to determine whether a statistical difference
+  - is present.
+- Visual suggestion: Kaplan–Meier step plot with censoring ticks; callout: log‑rank tests entire curves.
+
+Slide 29: Wrap‑Up & Take‑Home
+
+- Reliability ≠ Validity—know which claim your study is making
+- p‑values show data compatibility with H₀; report effect sizes
+- Plan for power; low power inflates false‑negatives
+- Match the test to the data: ANOVA (>2 means), χ² (proportions)
+- Report ARR/NNT and 95% CIs for clinical meaning
+- Use survival analysis when outcomes unfold over time
+
+Slide 30: Apply It This Month
+
+- Bring one recent paper to the next session
+- Identify: design, primary outcome, effect size, 95% CI, threats to validity
+- Be ready for a 60‑second ‘stat read’ to start Lecture 3
