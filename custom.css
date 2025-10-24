@@ -203,10 +203,20 @@
 }
 
 /* Specific styling for Question 9 with long answers */
+#quiz-container-9 {
+  font-size: 0.85em;
+}
+
+#quiz-container-9 .question {
+  font-size: 0.9em;
+}
+
 #quiz-container-9 label {
   display: flex;
   align-items: flex-start;
   text-align: left;
+  font-size: 0.88em;
+  margin-bottom: 8px;
 }
 
 #quiz-container-9 label input {
@@ -218,6 +228,12 @@
   display: inline-block;
   padding-left: 0.5em;
   flex: 1;
+}
+
+#quiz-container-9 .data-display {
+  font-size: 0.9em;
+  margin: 10px 0;
+  padding: 8px;
 }
 
 /* Quiz button styles */
