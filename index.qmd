@@ -105,12 +105,6 @@ Of the following, this scenario refers to the research concept of:
 
 ## Debrief: Reliability vs. Validity
 
-**Correct Answer: C. inter-rater reliability**
-
-**Key Points:**
-- Reliability is the consistency (repeatability) of scores (e.g., you get the same temperature measurement with repeated tests).
-- Validity describes whether a test or instrument actually measures what is intended (e.g., a temporal thermometer measures the core body temperature).
-
 **Key Takeaway:** Reliability is about consistency (getting the same result repeatedly), while validity is about truthfulness (measuring the right thing).
 
 ---
@@ -236,12 +230,6 @@ Of the following, the application of this study to the hospitalist's patients is
 
 ## Debrief: Generalizability
 
-**Correct Answer: B. generalizability**
-
-**Key Points:**
-- Generalizability (external validity) is the degree to which a research study's results can be applied to other populations and settings.
-- Internal validity evaluates the causal relationship of variables in a particular research study.
-
 **Key Takeaway:** A study's results are only useful if they can be applied to your specific patient population (external validity).
 
 ---
@@ -273,8 +261,8 @@ ggplot(quadrants, aes(x = x, y = y)) +
   scale_y_continuous(limits = c(0, 1), breaks = c(0.25, 0.75), labels = c("Low", "High")) +
   labs(title = "Internal Validity × External Validity",
        subtitle = "The BtrBreth study has high internal validity but limited generalizability",
-       x = "External Validity (Generalizability)",
-       y = "Internal Validity (Causal Inference)") +
+       y = "External Validity (Generalizability)",
+       x = "Internal Validity (Causal Inference)") +
   theme_void() +
   theme(
     plot.title = element_text(size = 18, face = "bold", color = "#43418A", hjust = 0.5),
@@ -340,12 +328,6 @@ Of the following, the statement that BEST reflects the results of this study is:
 ---
 
 ## Debrief: Interpreting a p-value
-
-**Correct Answer: B. the null hypothesis regarding difference in admission rates should be rejected**
-
-**Key Points:**
-- The P value is the probability that an outcome at least as extreme is observed if the null hypothesis is true.
-- Obtaining a result with a P value of less than α = 0.05 (5%) does not guarantee that the null hypothesis is wrong, since a type I error (or false positive error) may still have occurred.
 
 **Key Takeaway:** A p-value below alpha allows you to reject the null hypothesis, but it doesn't describe the effect's size or clinical importance.
 
@@ -450,12 +432,6 @@ Of the following, the BEST estimate of the probability that the authors have rea
 ---
 
 ## Debrief: Power & Type II Error
-
-**Correct Answer: D. 30%**
-
-**Key Points:**
-- The maximum probability of a type I error (inappropriately rejecting the null hypothesis) is determined by the level of significance chosen for the hypothesis test (α, usually .05).
-- The likelihood of type II error (inappropriately failing to reject the null hypothesis) is determined by the power of the hypothesis test (power = 1 − β).
 
 **Key Takeaway:** Power is your study's ability to find a real effect; low power means a high chance of a false negative (a Type II error).
 
@@ -568,13 +544,6 @@ Of the following, the MOST accurate statement regarding this study is that:
 
 ## Debrief: Type I vs. Type II Errors
 
-**Correct Answer: C. it is possible that a type II error was committed**
-
-**Key Points:**
-- A type II error (the probability of which is known as β) occurs when the study fails to reject the null hypothesis when there is indeed a difference between the two study groups.
-- A type I error (the probability of which is known as α) incorrectly rejects the null hypothesis.
-- The power of a study is equal to 1 − β. The higher the power, the lower the possibility of a type II error.
-
 **Key Takeaway:** Failing to find a difference in a small study doesn't mean there isn't one; you may have simply made a Type II error.
 
 ---
@@ -684,13 +653,6 @@ Of the following, the BEST statistical approach to determine whether mean serum 
 
 ## Debrief: ANOVA for Comparing Means
 
-**Correct Answer: A. analysis of variance**
-
-**Key Points:**
-- In general, variables can be categorical (e.g., male, female) or continuous (e.g., age, serum phosphorus).
-- Categorical variables can be dichotomous (e.g., vaccinated or unvaccinated) or fall into more than two categories (e.g., race/ethnicity).
-- An analysis of variance is the best option for comparing mean values of more than 2 groups, assuming normal distribution.
-
 **Key Takeaway:** Use ANOVA to compare the means of a continuous variable (e.g., phosphorus levels) across three or more groups.
 
 ---
@@ -796,13 +758,6 @@ Of the following, the MOST appropriate statistical test for this study is:
 
 ## Debrief: Chi-Square for Proportions
 
-**Correct Answer: B. chi-square test**
-
-**Key Points:**
-- Choosing an appropriate statistical method depends on the research question, study design, type of variables, and the structure of the data.
-- Categorical variables are variables that have 2 or more groups.
-- A chi-square test is used to compare proportions of a categorical outcome between groups.
-
 **Key Takeaway:** Use a Chi-Square test to compare the proportions of a categorical outcome (e.g., readmitted vs. not) between two or more groups.
 
 ---
@@ -894,12 +849,6 @@ Of the following, the NUMBER of patients needed to be treated with this medicati
 
 ## Debrief: Calculating NNT
 
-**Correct Answer: B. 5**
-
-**Key Points:**
-- Number needed to treat (NNT) is the number of patients who would need to be treated to prevent the unwanted outcome.
-- It is calculated as NNT = 1 / absolute risk reduction = 1 / (risk_control − risk_treatment).
-
 **Key Takeaway:** NNT translates risk reduction into an intuitive number: how many people you need to treat to prevent one bad outcome.
 
 ---
@@ -968,12 +917,6 @@ Of the following, the BEST interpretation of these results is that:
 ---
 
 ## Debrief: Understanding Confidence Intervals
-
-**Correct Answer: B. there is 95% certainty that the mean TTG level for serology-confirmed CD in the population would be between 18 and 42**
-
-**Key Points:**
-- Confidence intervals are routinely set at 90%, 95%, or 99%, indicating the percent certainty that the true effect (i.e., population mean) falls within the interval.
-- Confidence intervals (CIs) inform the reader about the precision of the estimates. Narrow CIs are typically seen when the sample size is large, because the standard deviations decrease as the sample size increases.
 
 **Key Takeaway:** A 95% CI provides a range for the true *population mean*, not a range containing 95% of individual patients.
 
@@ -1080,12 +1023,6 @@ Of the following, the BEST statistical approach is:
 ---
 
 ## Debrief: Survival Analysis
-
-**Correct Answer: B. survival analysis**
-
-**Key Points:**
-- Kaplan-Meier survival analysis is a great way to visually depict outcomes over time.
-- Additional analysis beyond the survival curve is required to determine whether a statistical difference is present.
 
 **Key Takeaway:** For "time-to-event" outcomes, use survival analysis (like Kaplan-Meier) to properly account for time and for patients who leave the study (censoring).
 
@@ -1225,25 +1162,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <li>p‑value = probability of observing data at least this extreme if H0 were true</li>
     <li>p = .01 means: "If there were truly no difference, we'd see results this extreme only 1% of the time"</li>
     <li><strong>Important:</strong> p‑value is NOT the effect size, and p < .05 doesn't guarantee H0 is false (Type I error still possible)</li>
-  </ul>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>A:</strong> Causation claim not supported—this is observational (children getting multiple doses likely have more severe croup)</li>
-    <li><strong>C:</strong> This is an odds ratio calculation, not directly addressed by the p‑value</li>
-    <li><strong>D:</strong> The study was well-powered with 88,000 patients and found p = .01</li>
   </ul>`,
 
     4: `<p><strong>Correct Answer: D. 30%</strong></p>
   <p><strong>Explanation:</strong> The study failed to reject H0 (concluded no difference). With 70% power, the probability of a Type II error (β) is:</p>
   <p style="text-align: center; font-size: 1.1em; margin: 15px 0;"><strong>β = 1 − Power = 1 − 0.70 = 0.30 = 30%</strong></p>
-  <p><strong>Type II Error:</strong> Failing to reject H0 when there IS a real effect. Given the observed difference (35% vs 28% reduction), the study may have missed a true difference due to insufficient power.</p>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>A (5%):</strong> This is α, the Type I error rate—only relevant if we HAD rejected H0</li>
-    <li><strong>B (7%):</strong> Not relevant to error rates</li>
-    <li><strong>C (13%):</strong> This is the p‑value, which indicates compatibility with H0, not error probability</li>
-  </ul>
-  <p><strong>Key Takeaway:</strong> When a study fails to find significance, always consider power. Low power = high risk of false negatives.</p>`,
+  <p><strong>Type II Error:</strong> Failing to reject H0 when there IS a real effect. Given the observed difference (35% vs 28% reduction), the study may have missed a true difference due to insufficient power.</p>`,
 
     5: `<p><strong>Correct Answer: C. it is possible that a type II error was committed</strong></p>
   <p><strong>Explanation:</strong> The study failed to find a significant difference (failed to reject H0). A Type II error occurs when we fail to reject H0 when there actually IS a real difference between groups.</p>
@@ -1278,15 +1202,8 @@ document.addEventListener('DOMContentLoaded', function() {
   <ul>
     <li><strong>Outcome:</strong> Continuous variable (phosphorus level)</li>
     <li><strong>Predictor:</strong> Categorical variable with >2 groups (Hispanic, African-American, White, Unknown)</li>
-    <li><strong>Question:</strong> "Do the group means differ?"</li>
-  </ul>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>B. Chi-square:</strong> Used for comparing proportions/frequencies, not means</li>
-    <li><strong>C. Linear regression:</strong> Could work but ANOVA is more direct for this question</li>
-    <li><strong>D. Paired t-test:</strong> Only compares 2 groups, and requires paired/matched data</li>
-  </ul>
-  <p><strong>Post-hoc tests:</strong> If ANOVA shows significance, follow up with post-hoc tests (e.g., Tukey's HSD) to determine which specific groups differ.</p>`,
+    <li><strong>Question:</strong> "Do the group means differ?"</li></ul>
+    <p><strong>Post-hoc tests</strong> If ANOVA shows significance, follow up with a post-hoc test like a Tukey's HSD to determine which groups differ.</p>`,
 
     7: `<p><strong>Correct Answer: B. chi-square test</strong></p>
   <p><strong>Explanation:</strong> Chi-square (χ²) test is the appropriate choice when comparing proportions between independent groups. This study compares:</p>
@@ -1312,14 +1229,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <td style="border: 1px solid #ccc; padding: 8px;">c</td>
       <td style="border: 1px solid #ccc; padding: 8px;">d</td>
     </tr>
-  </table>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>A. ANOVA:</strong> Used for comparing means of continuous variables, not proportions</li>
-    <li><strong>C. McNemar test:</strong> Used for paired/matched categorical data (same patients measured twice)</li>
-    <li><strong>D. Paired t-test:</strong> Used for continuous paired data</li>
-  </ul>
-  <p><strong>Note:</strong> Use Fisher's exact test instead of χ² when expected cell counts are < 5.</p>`,
+  </table>`,
 
     8: `<p><strong>Correct Answer: B. 5</strong></p>
   <p><strong>Explanation:</strong> Number Needed to Treat (NNT) is calculated from the Absolute Risk Reduction (ARR):</p>
@@ -1329,14 +1239,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <strong>Step 2:</strong> Calculate NNT = 1 / ARR<br>
     NNT = 1 / 0.20 = <strong>5</strong>
   </p>
-  <p><strong>Clinical Interpretation:</strong> For every 5 children treated with this medication, 1 additional child will avoid joint erosion who would have otherwise had erosion.</p>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>A (3):</strong> Would require ARR of 33%</li>
-    <li><strong>C (15):</strong> Incorrect—this might be the treatment percentage (10%) + ARR (20%) = 30%</li>
-    <li><strong>D (20):</strong> This is the ARR expressed as a percentage, not the NNT</li>
-  </ul>
-  <p><strong>Remember:</strong> Lower NNT = more effective treatment. NNT of 5 is considered quite good!</p>`,
+  <p><strong>Clinical Interpretation:</strong> For every 5 children treated with this medication, 1 additional child will avoid joint erosion who would have otherwise had erosion.</p>`,
 
     9: `<p><strong>Correct Answer: B. there is 95% certainty that the mean TTG level for serology-confirmed CD in the population would be between 18 and 42</strong></p>
   <p><strong>Explanation:</strong> A 95% confidence interval (CI) tells us where the TRUE POPULATION MEAN likely falls, not where individual data points fall.</p>
@@ -1345,13 +1248,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <li>If we repeated this study many times, 95% of calculated CIs would contain the true population mean</li>
     <li>We are 95% confident that the true mean TTG for serology-confirmed CD patients lies between 18 and 42</li>
   </ul>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>A:</strong> WRONG—the CI describes the population mean, not the range where 95% of individual subjects fall</li>
-    <li><strong>C:</strong> WRONG—non-overlapping CIs suggest a difference, but this doesn't translate to "95% likelihood of significance"</li>
-    <li><strong>D:</strong> WRONG—the CI is about the mean, not about individual patients' values</li>
-  </ul>
-  <p><strong>Clinical Insight:</strong> The CIs don't overlap (biopsy: 10-20, serology: 18-42), suggesting the serology-confirmed group may have poorer adherence to the gluten-free diet (higher TTG levels).</p>
   <p><strong>What affects CI width?</strong></p>
   <ul>
     <li>Larger sample size → narrower CI (more precise)</li>
@@ -1372,14 +1268,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <li><strong>Kaplan-Meier curves:</strong> Step-function plots showing probability of remaining event-free over time</li>
     <li><strong>Censoring (+ marks):</strong> Patients who exit the study before experiencing the event</li>
     <li><strong>Log-rank test:</strong> Statistical test comparing entire survival curves between groups</li>
-  </ul>
-  <p><strong>Why other answers are wrong:</strong></p>
-  <ul>
-    <li><strong>A. ANOVA:</strong> Compares means across groups at a single time point, doesn't account for time-to-event or censoring</li>
-    <li><strong>C. t-test:</strong> Compares means between 2 groups at one time point, ignores the time component</li>
-    <li><strong>D. χ² test:</strong> Compares proportions at one time point (e.g., "converted by day 180: yes/no"), loses temporal information</li>
-  </ul>
-  <p><strong>Common medical uses:</strong> Overall survival, time to disease recurrence, time to hospital readmission, time to seroconversion</p>`
+  </ul>`
   };
 
   // Create modals for all explanations
